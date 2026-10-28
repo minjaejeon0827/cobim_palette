@@ -125,3 +125,6 @@ HubBox Palette는 코드가 있지만 등록 부분이 주석 처리되어 있�
 - **코드 정리 방식**: 멤버마다 `#region <이름>` / `#endregion <이름>`으로 묶고, 파일 끝에는 빈 `#region Sample`을 둔다.
 사용하지 않는 기능은 지우지 않고 주석으로 남겨 두며, 날짜가 들어간 `// TODO : ... (yyyy.MM.dd minjae)` 메모를 함께 적는다.
 - **로그 파일**: Serilog 파일 로그가 `Documents\COBIM\CobimPalette\Logs\CobimPalette_.log`에 저장된다. (최대 30개 파일 보관)
+
+### 참고
+- [COBIM BIM 기반 인프라 발주-설계 프로세스 디지털 협업 체계 개발](https://scienceon.kisti.re.kr/srch/selectPORSrchReport.do?cn=TRKO202500010351)
