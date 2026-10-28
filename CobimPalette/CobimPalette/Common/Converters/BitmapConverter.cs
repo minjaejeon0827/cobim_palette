@@ -45,12 +45,12 @@ namespace CobimPalette.Common.Converters
             bitmap.Save(stream, ImageFormat.Png);
             BitmapImage bmp = new BitmapImage();
 
-            // TODO : 메서드 BeginInit 호출하여 비트맵 이미지 객체(bmp) 초기화 시작 구현 (2024.12.04 jbh)
+            // TODO : 메서드 BeginInit 호출하여 비트맵 이미지 객체(bmp) 초기화 시작 구현 (2024.12.04 minjae)
             // 참고 URL - https://learn.microsoft.com/en-us/dotnet/api/system.windows.media.imaging.bitmapimage.begininit?view=windowsdesktop-9.0
             bmp.BeginInit();   // 비트맵 이미지 객체(bmp) 초기화 
             bmp.StreamSource = stream;   // 비트맵 이미지 객체(bmp) 속성 StreamSource 셋팅
 
-            // TODO : 메서드 EndInit 호출하여 비트맵 이미지 객체(bmp) 초기화 완료 구현 (2024.12.04 jbh)
+            // TODO : 메서드 EndInit 호출하여 비트맵 이미지 객체(bmp) 초기화 완료 구현 (2024.12.04 minjae)
             // 참고 URL - https://learn.microsoft.com/en-us/dotnet/api/system.windows.media.imaging.bitmapimage.endinit?view=windowsdesktop-9.0
             bmp.EndInit();
             //System.Windows.MessageBox.Show(bmp.Width + "/" + bmp.Height);

@@ -6,7 +6,7 @@ namespace CobimPalette.Data.Models.CobimBase.AutoCAD
     // 참고 URL - http://www.csharpstudy.com/CSharp/CSharp-generics.aspx
     public class AutoCADView<TData> : AutoCADView where TData : AutoCADView<TData> { }
 
-    // TODO : 추후 필요시 AutoCAD API 전용 데이터 모델 클래스 AutoCADView 구현 예정 (2024.10.30 jbh) 
+    // TODO : 추후 필요시 AutoCAD API 전용 데이터 모델 클래스 AutoCADView 구현 예정 (2024.10.30 minjae) 
     /// <summary>
     /// CobimPalette
     /// AutoCAD API 전용 데이터 모델

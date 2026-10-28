@@ -22,7 +22,7 @@ namespace CobimPalette.Settings
 
         #region 생성자
 
-        // TODO : 필요시 생성자 "HttpClientSetting" 구현 예정 (2024.10.07 jbh)
+        // TODO : 필요시 생성자 "HttpClientSetting" 구현 예정 (2024.10.07 minjae)
         public HttpClientSetting()
         {
 

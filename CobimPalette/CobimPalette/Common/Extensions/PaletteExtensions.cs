@@ -6,7 +6,7 @@ namespace CobimPalette.Common.Extensions
 {
     public static class PaletteExtensions
     {
-        // TODO : 생성된 CustomPaletteSet 객체 관리자 클래스 PaletteSetManager 구현 (2024.11.12 jbh)
+        // TODO : 생성된 CustomPaletteSet 객체 관리자 클래스 PaletteSetManager 구현 (2024.11.12 minjae)
         // 참고 URL - https://chatgpt.com/c/6732eff1-98a8-8011-844a-96c169d9efa5
         /// <summary>
         /// 생성된 CustomPaletteSet 객체 관리자 클래스
@@ -29,7 +29,7 @@ namespace CobimPalette.Common.Extensions
 
             #region 생성자
 
-            // TODO : 필요시 생성자 PaletteSetManager 수정 예정 (2024.11.12 jbh)
+            // TODO : 필요시 생성자 PaletteSetManager 수정 예정 (2024.11.12 minjae)
             public PaletteSetManager()
             {
                 //_PaletteSetDic = new Dictionary<Guid, PaletteSet>();
@@ -78,7 +78,7 @@ namespace CobimPalette.Common.Extensions
 
             #region GetPalette
 
-            // TODO : 필요시 특정 GUID를 가진 CustomPaletteSet 객체 가져오기 메서드 "GetPalette" 수정 예정 (2024.11.12 jbh)
+            // TODO : 필요시 특정 GUID를 가진 CustomPaletteSet 객체 가져오기 메서드 "GetPalette" 수정 예정 (2024.11.12 minjae)
             /// <summary>
             /// 특정 Guid(paletteGuId) 값을 가진 CustomPaletteSet 객체 가져오기 
             /// </summary>

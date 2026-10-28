@@ -9,13 +9,13 @@ namespace CobimPalette.ViewModels.Pages.Palettes.Project.BIM360.HubBox
     // 구글 크롬 전용 <CefSharp> 화면
     // 뷰(HubBoxV.xaml)
     // 뷰모델(HubBoxVM.cs)에서
-    // 사용하고 있는 메모리를 정리하는 로직 구현하기 (2024.11.12 jbh)
+    // 사용하고 있는 메모리를 정리하는 로직 구현하기 (2024.11.12 minjae)
 
     // 참고 URL - https://stackoverflow.com/questions/48398628/c-sharp-cefsharp-memory-management
     // 참고 2 URL - https://blog.naver.com/iconms1/222033637762
     // 참고 3 URL - https://github.com/cefsharp/CefSharp/blob/master/CefSharp.WinForms.Example/BrowserForm.cs#L137
 
-    // TODO : 구글 크롬 기반 웹브라우저 화면을 WPF에서 출력할 수 있도록 CefSharp(구글 크롬 웹브라우저 컨트롤) 구현 (2024.11.12 jbh) 
+    // TODO : 구글 크롬 기반 웹브라우저 화면을 WPF에서 출력할 수 있도록 CefSharp(구글 크롬 웹브라우저 컨트롤) 구현 (2024.11.12 minjae) 
     // 참고 URL - https://blog.naver.com/codeknight2/222210163649  
     // 참고 2 URL - https://github.com/cefsharp/CefSharp/wiki/Quick-Start  
     // 유튜브 참고 URL - https://youtu.be/si8wemHOMYA?si=FiL-r-_5MoF1EwU_

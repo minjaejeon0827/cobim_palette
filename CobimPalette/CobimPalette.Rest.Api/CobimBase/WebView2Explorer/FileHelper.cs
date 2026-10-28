@@ -36,7 +36,7 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
             string dirMapPath = string.Empty;    // 다운로드 받으려고 하는 파일 중복 여부 체크할 때 필요한 파일 경로 
             string downloadFilePath = string.Empty;    // 다운로드 받으려고 하는 최종 파일 경로 (파일 전체 경로 + 이름 중복일 때 변경된 파일 이름)
 
-            // TODO : 로그 기록시 현재 실행 중인 메서드 위치 기록하기 (2023.10.10 jbh)
+            // TODO : 로그 기록시 현재 실행 중인 메서드 위치 기록하기 (2023.10.10 minjae)
             // 참고 URL - https://slaner.tistory.com/73
             // 참고 2 URL - https://stackoverflow.com/questions/4132810/how-can-i-get-a-method-name-with-the-namespace-class-name
             // 참고 3 URL - https://stackoverflow.com/questions/44153/can-you-use-reflection-to-find-the-name-of-the-currently-executing-method
@@ -44,13 +44,13 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
 
             try
             {
-                // TODO : 다운로드 받으려고 하는 파일의 상위 컨테이너 아이디 폴더 아이디 값(pContainerPack.containerId)을 string 클래스 객체 containerId에 할당 (2023.11.24 jbh)
+                // TODO : 다운로드 받으려고 하는 파일의 상위 컨테이너 아이디 폴더 아이디 값(pContainerPack.containerId)을 string 클래스 객체 containerId에 할당 (2023.11.24 minjae)
                 containerId = pContainerPack.GetContainerId();
 
-                // TODO : 체크아웃 진행시 체크아웃 요청한 컨테이너 아이디와 연관된 컨테이너 아이디 문자열 값 추출 구현 (2023.12.15 jbh)
+                // TODO : 체크아웃 진행시 체크아웃 요청한 컨테이너 아이디와 연관된 컨테이너 아이디 문자열 값 추출 구현 (2023.12.15 minjae)
                 linkedContainerId = pContainerPack.GetLinkedContainerId();
 
-                // TODO : 다운로드 받을 파일명이 중복일 때, 기존 파일명 +N 으로 생성하도록 구현(2023.10.25 jbh)
+                // TODO : 다운로드 받을 파일명이 중복일 때, 기존 파일명 +N 으로 생성하도록 구현(2023.10.25 minjae)
                 // 참고 URL - https://pseudo-code.tistory.com/166
                 fileName = pFileName;
 
@@ -98,7 +98,7 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
             catch (Exception ex)
             {
                 Log.Logger.Error(Logger.GetMethodPath(currentMethod) + Logger.errorMessage + ex.Message);
-                // TODO : 오류 발생시 상위 호출자 예외처리 전달 throw 구현 (2023.10.6 jbh)
+                // TODO : 오류 발생시 상위 호출자 예외처리 전달 throw 구현 (2023.10.6 minjae)
                 // 참고 URL - https://devlog.jwgo.kr/2009/11/27/thrownthrowex/
                 throw;
             }

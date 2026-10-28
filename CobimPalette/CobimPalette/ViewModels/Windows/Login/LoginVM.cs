@@ -62,7 +62,7 @@ namespace CobimPalette.ViewModels.Windows.Login
 
 
         // TODO : bool 자료형 프로퍼티 "IsLoginWorking"
-        //        private bool 프로퍼티 및 NotifyOfPropertyChange(nameof(~~~)) 참조(사용) 안함. (2024.09.04 jbh)
+        //        private bool 프로퍼티 및 NotifyOfPropertyChange(nameof(~~~)) 참조(사용) 안함. (2024.09.04 minjae)
         // private bool 프로퍼티 및 NotifyOfPropertyChange(nameof(~~~)) 참조(사용) 안 하는 이유?
         // "로그인" 기능 실행시 처리 중인 상태에서 해당 기능을 중복 요청하지 못 하도록
         // 버튼 "로그인"이 클릭되지 못하도록
@@ -131,7 +131,7 @@ namespace CobimPalette.ViewModels.Windows.Login
                 AppSetting.Default.LoginBase.SetLoginId(this.LoginID);
                 AppSetting.Default.LoginBase.SetPassword(this.Password);
 
-                // TODO : 아래 주석친 테스트 코드 필요시 참고 (2024.09.23 jbh)
+                // TODO : 아래 주석친 테스트 코드 필요시 참고 (2024.09.23 minjae)
                 // LoginView.SetRequestHeader(new RequestHeader(this.TenantId, responseData.resultData, responseData.accessKey, responseData.refreshToken));
                 // AppSetting.Default.LoginBase.SetRequestHeader(this.TenantId, responseData.resultData);
                 // AppSetting.Default.LoginBase.LoginServerPath = this.LoginServerPath;
@@ -179,7 +179,7 @@ namespace CobimPalette.ViewModels.Windows.Login
             }
             catch (Exception ex)
             {
-                // TODO : 필요시 에러 로그 기록 사용 예정 (2024.07.03 jbh)
+                // TODO : 필요시 에러 로그 기록 사용 예정 (2024.07.03 minjae)
                 // Log.Error(Logger.GetMethodPath(currentMethod) + Logger.errorMessage + ex.Message);
                 MessageBox.Show(ex.Message, CobimHelper.ErrorTitle);
                 return false;
@@ -190,7 +190,7 @@ namespace CobimPalette.ViewModels.Windows.Login
 
         #region LoginAsync
 
-        // TODO : 필요시 로그인 처리 비동기 메서드 "LoginAsync" 구현 예정 (2024.09.25 jbh)
+        // TODO : 필요시 로그인 처리 비동기 메서드 "LoginAsync" 구현 예정 (2024.09.25 minjae)
         /// <summary>
         /// 로그인 처리 
         /// </summary>
@@ -217,7 +217,7 @@ namespace CobimPalette.ViewModels.Windows.Login
 
         #region CloseLogin
 
-        // TODO : 필요시 로그인 화면 종료 메서드 "CloseLogin" 구현 예정 (2024.09.25 jbh)
+        // TODO : 필요시 로그인 화면 종료 메서드 "CloseLogin" 구현 예정 (2024.09.25 minjae)
         /// <summary>
         /// 로그인 화면 종료 
         /// </summary>

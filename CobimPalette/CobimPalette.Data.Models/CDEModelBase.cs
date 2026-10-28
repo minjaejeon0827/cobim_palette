@@ -4,13 +4,13 @@ using System.Text.Json.Serialization;
 
 namespace CobimPalette.Data.Models
 {
-    // TODO : 추후 필요시 "CDEModelBase" 클래스 구현 예정 (2024.09.23 jbh)
+    // TODO : 추후 필요시 "CDEModelBase" 클래스 구현 예정 (2024.09.23 minjae)
 
     // 제네릭 타입 제약 문법 where T 
     // 참고 URL - http://www.csharpstudy.com/CSharp/CSharp-generics.aspx
     public class CDEModelBase<TData> : CDEModelBase where TData : CDEModelBase<TData> { }
 
-    // TODO : 추후 필요시 "CDEClass" 클래스, "ICloneable" 인터페이스 구현 예정 (2024.09.23 jbh)
+    // TODO : 추후 필요시 "CDEClass" 클래스, "ICloneable" 인터페이스 구현 예정 (2024.09.23 minjae)
     public class CDEModelBase : BindableBase, ICloneable
     {
         #region  프로퍼티 

@@ -10,7 +10,7 @@ namespace CobimPalette.Common.LogBase
     {
         #region 프로퍼티 
 
-        // TODO : 로그 타입 유형 문자열 (const string) 객체 다른 유형 필요시 추가 예정 (2024.08.14 jbh)
+        // TODO : 로그 타입 유형 문자열 (const string) 객체 다른 유형 필요시 추가 예정 (2024.08.14 minjae)
         public const string debugMessage = "디버그 - ";
 
         public const string infoMessage = "정보 - ";
@@ -23,7 +23,7 @@ namespace CobimPalette.Common.LogBase
 
         #region ConfigureLogger
 
-        // TODO : C# Serilog 사용해서 로그 남기도록 static 메서드 "ConfigureLogger" 구현 (2024.08.14 jbh)
+        // TODO : C# Serilog 사용해서 로그 남기도록 static 메서드 "ConfigureLogger" 구현 (2024.08.14 minjae)
         // 참고 URL - https://afsdzvcx123.tistory.com/entry/C-%EB%AC%B8%EB%B2%95-C-Serilog-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-%EB%A1%9C%EA%B7%B8-%EB%82%A8%EA%B8%B0%EA%B8%B0
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace CobimPalette.Common.LogBase
                 sbLogFilePath.Append($"\\{pAssemblyName}_.log");
                 logFilePath = sbLogFilePath.ToString();
 
-                // TODO : Stylet Logger 클래스 사용 안하고 Serilog 이용해서 로그 기록 및 로그 파일 생성 (2024.08.14 jbh)
+                // TODO : Stylet Logger 클래스 사용 안하고 Serilog 이용해서 로그 기록 및 로그 파일 생성 (2024.08.14 minjae)
                 // 참고 URL - https://m.blog.naver.com/wolfre/221713399852
                 // 참고 2 URL - https://github.com/serilog/serilog/wiki/Getting-Started
                 // 참고 3 URL - https://afsdzvcx123.tistory.com/entry/C-%EB%AC%B8%EB%B2%95-C-Serilog-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-%EB%A1%9C%EA%B7%B8-%EB%82%A8%EA%B8%B0%EA%B8%B0
@@ -54,7 +54,7 @@ namespace CobimPalette.Common.LogBase
                 // 참고 5 URL - https://www.reddit.com/r/dotnet/comments/qhwa4i/serilog_remove_files_older_than_30_days/
                 // 참고 6 URL - https://github.com/serilog/serilog-sinks-file#rolling-policies
 
-                // TODO : 에러 로그를 메일로 보내는 로직(.WriteTo.Email) 필요시 추후 구현 예정 (2024.08.14 jbh)
+                // TODO : 에러 로그를 메일로 보내는 로직(.WriteTo.Email) 필요시 추후 구현 예정 (2024.08.14 minjae)
                 // 참고 URL - https://github.com/serilog/serilog-sinks-email
                 var log = new LoggerConfiguration()
                               .MinimumLevel.Verbose()   // 로그 남기는 기준 ex) Verbose 이상 다 남겨야 함.
@@ -67,12 +67,12 @@ namespace CobimPalette.Common.LogBase
                                   path: logFilePath,
                                   Serilog.Events.LogEventLevel.Verbose,
                                   // TODO : 로그 파일에 날짜를 수동으로 지정할 필요 없이 rollingInterval: RollingInterval.Day, 사용해서 로그파일 이름 언더바(_)옆에 로그 생성된 날짜가 추가되도록 구현
-                                  //        (이렇게 구현해야 아래 프로퍼티 "retainedFileCountLimit" 사용해서 날짜가 지난 로그파일 삭제 처리 할 수 있음.) (2024.08.14 jbh) 
+                                  //        (이렇게 구현해야 아래 프로퍼티 "retainedFileCountLimit" 사용해서 날짜가 지난 로그파일 삭제 처리 할 수 있음.) (2024.08.14 minjae) 
                                   // 참고 URL - https://stackoverflow.com/questions/32108148/serilog-rollingfile
                                   rollingInterval: RollingInterval.Day,
                                   rollOnFileSizeLimit: true,   // 로그 파일 최대 사이즈 1GB  null 옵션 가능
                                                                // TODO : 테스트 용 로그 파일 갯수 2개(2일치 로그) 설정(2일 이상 지난 오래된 로그는 삭제 처리)
-                                                               //        2일 지난 로그 파일 정상적으로 삭제 처리시 아래 주석 처리된 소스코드 "retainedFileCountLimit: 62,"로 다시 구현해야 함. (2024.08.14 jbh)
+                                                               //        2일 지난 로그 파일 정상적으로 삭제 처리시 아래 주석 처리된 소스코드 "retainedFileCountLimit: 62,"로 다시 구현해야 함. (2024.08.14 minjae)
                                                                // 참고 URL - https://stackoverflow.com/questions/44577336/how-do-i-automatically-tail-delete-older-logs-using-serilog-in-a-net-wpf-appl
                                   retainedFileCountLimit: pLogFileCountLimit,
                                   // retainedFileCountLimit: 62,  // 로그 파일 갯수 62개(2달치 로그) 설정(2달 지난 오래된 로그는 삭제 처리) - 기본 31개 설정 가능, null 옵션 가능
@@ -102,7 +102,7 @@ namespace CobimPalette.Common.LogBase
 
         #region DeleteOldLogFiles
 
-        // TODO : 기간 지난 로그 파일 삭제 ((new LoggerConfiguration() -> .WriteTo.File(retainedFileCountLimit)에 할당된 값(기간) 기준)) 처리 메서드 "DeleteOldLogFiles" 구현 (2024.08.14 jbh)
+        // TODO : 기간 지난 로그 파일 삭제 ((new LoggerConfiguration() -> .WriteTo.File(retainedFileCountLimit)에 할당된 값(기간) 기준)) 처리 메서드 "DeleteOldLogFiles" 구현 (2024.08.14 minjae)
         // 참고 URL - https://chat.openai.com/c/8791804a-55ca-4bf1-b54e-1a34a68f39b5
         /// <summary>
         /// 기간 지난 로그 파일 삭제
@@ -148,7 +148,7 @@ namespace CobimPalette.Common.LogBase
                 // 로그 파일 생성 날짜가 금일 날짜 보다 30일 이전(DateTime.Now.AddDays(-30))이면 로그 파일 삭제
                 // 참고 URL - https://bigenergy.tistory.com/entry/C-%ED%83%80%EC%9D%B4%EB%A8%B8%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%98%A4%EB%9E%98%EB%90%9C-%ED%8C%8C%EC%9D%BC-%EC%82%AD%EC%A0%9C-%EB%A1%9C%EA%B7%B8-%EC%82%AD%EC%A0%9C
                 // 참고 2 URL - https://medialink.tistory.com/44
-                // TODO : 아래 소스코드 실행시 당일 날짜(DateTime.Now) 30일 전일(-30 = daysToKeep) 이전 로그파일 찾아서 오래된 로그 파일 삭제 처리 구현 (2024.08.14 jbh)
+                // TODO : 아래 소스코드 실행시 당일 날짜(DateTime.Now) 30일 전일(-30 = daysToKeep) 이전 로그파일 찾아서 오래된 로그 파일 삭제 처리 구현 (2024.08.14 minjae)
                 fileList.FindAll(file => file.CreationTime.CompareTo(DateTime.Now.AddDays(daysToKeep)) < 0)
                         .ForEach(file => {
                             if (Path.GetExtension(file.FullName) == ".log") File.Delete(file.FullName);
@@ -176,7 +176,7 @@ namespace CobimPalette.Common.LogBase
 
             try
             {
-                // TODO : 테스트 코드 - 강제로 오류 발생하도록 Exception 생성 하도록 구현 (필요시 사용) (2024.08.14 jbh)
+                // TODO : 테스트 코드 - 강제로 오류 발생하도록 Exception 생성 하도록 구현 (필요시 사용) (2024.08.14 minjae)
                 // 참고 URL - https://morm.tistory.com/187
                 // 참고 2 URL - https://learn.microsoft.com/ko-kr/dotnet/csharp/fundamentals/exceptions/creating-and-throwing-exceptions
                 // throw new Exception();

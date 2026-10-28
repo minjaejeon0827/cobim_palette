@@ -6,7 +6,7 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
     {
         #region Rest API 요청 URL
 
-        // TODO : 6. 컨테이너 목록 조회 (파일 리스트 조회 API) const string 변수 "requestFolderURL" 필요시 수정 예정 (2023.09.20 jbh)
+        // TODO : 6. 컨테이너 목록 조회 (파일 리스트 조회 API) const string 변수 "requestFolderURL" 필요시 수정 예정 (2023.09.20 minjae)
         /// <summary>
         /// 6. 컨테이너 목록 조회 (파일 리스트 조회 API)
         /// 요청 URL
@@ -38,14 +38,14 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
         public const string requestCheckInURL = "https://cobim.io/api/explorer/container/checkin/";
 
 
-        // TODO : 15. 컨테이너 변경(파일 변경) - (1) 파일 업로드 API const string 객체 requestCreateURL 필요시 사용 예정 (2023.11.28 jbh)
+        // TODO : 15. 컨테이너 변경(파일 변경) - (1) 파일 업로드 API const string 객체 requestCreateURL 필요시 사용 예정 (2023.11.28 minjae)
         /// <summary>
         /// 15. 컨테이너 변경(파일 변경) - (1) 파일 업로드 API
         /// </summary>
         public const string requestCreateURL = "https://cobim.io/api/explorer/file/container/create/";
 
 
-        // TODO : 15. 컨테이너 변경(파일 변경) - (2) 컨테이너 변경 API const string 객체 requestUpdateURL 필요시 사용 예정 (2023.11.28 jbh)
+        // TODO : 15. 컨테이너 변경(파일 변경) - (2) 컨테이너 변경 API const string 객체 requestUpdateURL 필요시 사용 예정 (2023.11.28 minjae)
         /// <summary>
         /// 15. 컨테이너 변경(파일 변경) - (2) 컨테이너 변경 API
         /// </summary>
@@ -244,13 +244,13 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
         /// </summary>
         public const string codeNameReprt = "보고서";
 
-        // TODO : Rest API 9. 컨테이너 상세 조회 실행시 -> 서버를 통해 오는 JSON 데이터 중 "taskDetail"의 값이 null인 경우에 사용하는 인덱스 None "taskIdxNone" 구현 (2023.10.24 jbh)
+        // TODO : Rest API 9. 컨테이너 상세 조회 실행시 -> 서버를 통해 오는 JSON 데이터 중 "taskDetail"의 값이 null인 경우에 사용하는 인덱스 None "taskIdxNone" 구현 (2023.10.24 minjae)
         /// <summary>
         /// 마일스톤 - 업무 인덱스 None
         /// </summary>
         public const string taskIdxNone = "0";
 
-        // TODO : Rest API 9. 컨테이너 상세 조회 실행시 -> 서버를 통해 오는 JSON 데이터 중 "taskDetail"의 값이 null인 경우에 사용하는 업무 유형 None "taskDetailTypeNone" 구현 (2023.10.24 jbh)
+        // TODO : Rest API 9. 컨테이너 상세 조회 실행시 -> 서버를 통해 오는 JSON 데이터 중 "taskDetail"의 값이 null인 경우에 사용하는 업무 유형 None "taskDetailTypeNone" 구현 (2023.10.24 minjae)
         /// <summary>
         /// 마일스톤 - 업무 유형 None
         /// </summary>
@@ -326,7 +326,7 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
         /// </summary>
         public const string titleLabel = "제목";
 
-        // TODO : 컨테이너 정보 Label const string 문자열 객체 "soft_ifo_Label", "soft_ver_Label", "find_tag_Label" 필요시 사용 예정 (2023.10.19 jbh)
+        // TODO : 컨테이너 정보 Label const string 문자열 객체 "soft_ifo_Label", "soft_ver_Label", "find_tag_Label" 필요시 사용 예정 (2023.10.19 minjae)
         /// <summary>
         /// 컨테이너 정보 - 소프트웨어
         /// </summary>

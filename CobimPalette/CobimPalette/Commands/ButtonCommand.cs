@@ -4,7 +4,7 @@ using CobimPalette.Common.CobimBase;
 
 namespace CobimPalette.Commands
 {
-    // TODO: RelayCommand 추후 로직 변경 예정 (2024.09.23 jbh)
+    // TODO: RelayCommand 추후 로직 변경 예정 (2024.09.23 minjae)
     // 참고 URL - https://www.codeproject.com/Tips/813345/Basic-MVVM-and-ICommand-Usage-Example
     // 참고 2 URL - https://youtu.be/s7pt3EkDyq4
     // 참고 3 URL - https://blog.naver.com/PostView.naver?blogId=goldrushing&logNo=221243250136 
@@ -18,7 +18,7 @@ namespace CobimPalette.Commands
         /// </summary>
         public string _methodType { get; set; }
 
-        // TODO : 비동기 메소드 + 반환 타입이 void인 메소드 둘 다 구별해서 실행해야할 경우 추후 Action<object> _executeMethod; 사용 예정 (2024.09.23 jbh)
+        // TODO : 비동기 메소드 + 반환 타입이 void인 메소드 둘 다 구별해서 실행해야할 경우 추후 Action<object> _executeMethod; 사용 예정 (2024.09.23 minjae)
         // Action은 반환 타입이 void인 메소드를 위해 특별히 설계된 제네릭 델리게이트 의미
         // 참고 URL - https://blog.joe-brothers.com/csharp-delegate-func-action/
         Action<object> _executeVoidMethod;            // 반환 타입 void 메소드
@@ -27,14 +27,14 @@ namespace CobimPalette.Commands
 
         Func<object, bool> _canexecuteMethod;
 
-        // TODO : 추후 필요 시 이벤트 핸들러 "CanExecuteChanged" 사용 예정(2024.09.23 jbh)
+        // TODO : 추후 필요 시 이벤트 핸들러 "CanExecuteChanged" 사용 예정(2024.09.23 minjae)
         public event EventHandler CanExecuteChanged;
 
         #endregion 프로퍼티
 
         #region 생성자
 
-        // TODO : 비동기 메소드 + 반환 타입이 void인 메소드 둘 다 구별해서 실행해야할 경우 추후 아래  반환 타입이 void인 메소드와 바인딩하는 "ButtonCommand" 생성자 사용 예정 (2024.09.23 jbh)
+        // TODO : 비동기 메소드 + 반환 타입이 void인 메소드 둘 다 구별해서 실행해야할 경우 추후 아래  반환 타입이 void인 메소드와 바인딩하는 "ButtonCommand" 생성자 사용 예정 (2024.09.23 minjae)
         // 반환 타입이 void인 메소드와 바인딩하는 "ButtonCommand" 생성자
         public ButtonCommand(string voidMethodType, Action<object> executeMethod, Func<object, bool> canexecuteMethod)
         {

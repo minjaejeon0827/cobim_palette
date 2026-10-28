@@ -24,7 +24,7 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
 
         #region GetFileDownLoadAsync
 
-        // TODO : Rest API 파일 다운로드 (Get) 메서드 "GetFileDownLoadAsync" 구현 (2024.10.07 jbh)
+        // TODO : Rest API 파일 다운로드 (Get) 메서드 "GetFileDownLoadAsync" 구현 (2024.10.07 minjae)
         // 참고 URL - https://asecurity.dev/entry/NET-Download-file-from-HttpClientWebClient
         /// <summary>
         /// 7. 파일 다운로드 (Get)
@@ -40,12 +40,12 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
 
             string downloadFilePath = string.Empty;        // 다운로드 받으려고 하는 최종 파일 경로 (파일 전체 경로 + 이름 중복일 때 변경된 파일 이름)
 
-            // TODO : C# 문자열 보간 기능 사용해서 로그파일 생성할 상위 폴더 경로 문자열로 변환 (2024.10.07 jbh)
+            // TODO : C# 문자열 보간 기능 사용해서 로그파일 생성할 상위 폴더 경로 문자열로 변환 (2024.10.07 minjae)
             // 참고 URL - https://gaeunhan.tistory.com/61
-            // TODO : 다른 PC에서도 파일 다운로드 기능이 실행될 수 있도록 다운로드 받을 파일 전체 경로 "dirPath"의 루트 디렉토리 값을 내문서 폴더 (Environment.SpecialFolder.MyDocuments)로 설정 (2024.10.07 jbh)
+            // TODO : 다른 PC에서도 파일 다운로드 기능이 실행될 수 있도록 다운로드 받을 파일 전체 경로 "dirPath"의 루트 디렉토리 값을 내문서 폴더 (Environment.SpecialFolder.MyDocuments)로 설정 (2024.10.07 minjae)
             // 참고 URL - https://learn.microsoft.com/ko-kr/dotnet/api/system.environment.specialfolder?view=net-7.0
             // 파일 다운로드 전체 경로 예시 - "C:\Users\bhjeon\Documents\COBIM\CobimPalette\bmcb\inc-001-bmcb-t005\bmcb-imbu-func_016-sptl_901-002" - (SpecialFolder 시스템 디렉토리(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)) 사용)
-            // TODO : 메서드 Assembly.GetCallingAssembly() 사용하여 비동기 메서드 "GetFileDownLoadAsync" 호출한 어셈블리 (CobimPalette) 문자열 가져올 때 실패한 원인(문자열 "System.Private.CoreLib" 으로 리턴) 파악 예정 (2024.10.07 jbh)
+            // TODO : 메서드 Assembly.GetCallingAssembly() 사용하여 비동기 메서드 "GetFileDownLoadAsync" 호출한 어셈블리 (CobimPalette) 문자열 가져올 때 실패한 원인(문자열 "System.Private.CoreLib" 으로 리턴) 파악 예정 (2024.10.07 minjae)
             // 참고 URL - https://learn.microsoft.com/ko-kr/dotnet/api/system.reflection.assembly.getcallingassembly?view=net-8.0
             // string dirPath = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\COBIM\\{Assembly.GetCallingAssembly().GetName().Name}\\{containerPack.GetProjectId()}\\{containerPack.GetTeamId()}\\{containerPack.GetContainerId()}";
             string dirPath = $"{commonDirectoryPath}\\{containerPack.GetProjectId()}\\{containerPack.GetTeamId()}\\{containerPack.GetContainerId()}";
@@ -59,7 +59,7 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
 
             try
             {
-                // TODO : Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 메시지 출력 기능 구현 예정 (2024.10.07 jbh)
+                // TODO : Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 메시지 출력 기능 구현 예정 (2024.10.07 minjae)
 
                 // HttpClient 클래스 객체 "client"의 요청헤더(DefaultRequestHeaders)에 데이터 추가 하기 전 초기화
                 client.DefaultRequestHeaders.Clear();
@@ -69,7 +69,7 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
                 client.DefaultRequestHeaders.TryAddWithoutValidation(ContainerHelper.tenant, requestHeader.GetTenant());
                 client.DefaultRequestHeaders.TryAddWithoutValidation(ContainerHelper.access, requestHeader.GetAccess());
 
-                // TODO : StringBuilder 클래스 객체 requestSb 생성 -> 7. 파일 다운로드 (파일 다운로드 Rest API) URL 주소에 문자열 추가 (2024.10.07 jbh)
+                // TODO : StringBuilder 클래스 객체 requestSb 생성 -> 7. 파일 다운로드 (파일 다운로드 Rest API) URL 주소에 문자열 추가 (2024.10.07 minjae)
                 // StringBuilder vs String 비교 
                 // 참고 URL - https://afsdzvcx123.tistory.com/entry/C-%ED%99%9C%EC%9A%A9-String-StringBuilder-%EC%84%B1%EB%8A%A5-%EC%B0%A8%EC%9D%B4
 
@@ -85,7 +85,7 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
 
                 var requestFileDownLoadURL = requestSb.ToString();
 
-                // TODO : HttpClient Get 방식으로 서버에 요청할 때, using 문 사용 (2024.10.07 jbh)
+                // TODO : HttpClient Get 방식으로 서버에 요청할 때, using 문 사용 (2024.10.07 minjae)
                 // 참고 URL - https://learn.microsoft.com/ko-kr/dotnet/fundamentals/networking/http/httpclient
                 using HttpResponseMessage response = await client.GetAsync(requestFileDownLoadURL);
 
@@ -103,11 +103,11 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
                     downloadFilePath = FileHelper.FileDownLoadPath(dirPath, containerPack, fi.Name);
 
 
-                    // TODO : 해당 using 문장을 벗어나면 FileStream 클래스 객체 fs Dipose 처리 (리소스 해제 및 자원 반납) 구현 (2024.10.07 jbh)
+                    // TODO : 해당 using 문장을 벗어나면 FileStream 클래스 객체 fs Dipose 처리 (리소스 해제 및 자원 반납) 구현 (2024.10.07 minjae)
                     //        아래 소스코드를 using문으로 구현 안하고 실행시 파일을 생성되나 FileStream 클래스 객체 fs가 close 처리가 자동으로 되지 않아서 
                     //        다운로드 받은 이미지 파일(.jpg, .png 등등...)을 열어도 손상된 상태라고 하며 이미지를 볼 수 없으니 주의해야 한다.
                     // 참고 URL - https://hongjinhyeon.tistory.com/92
-                    // TODO : httpClient 객체 client 사용 URL을 이용한 파일 다운로드 구현 (2024.10.07 jbh)
+                    // TODO : httpClient 객체 client 사용 URL을 이용한 파일 다운로드 구현 (2024.10.07 minjae)
                     // 참고 URL - https://asecurity.dev/entry/NET-Download-file-from-HttpClientWebClient
                     // 참고 2 URL - https://stackoverflow.com/questions/45711428/download-file-with-webclient-or-httpclient
                     using (var fs = File.Create(downloadFilePath))
@@ -130,7 +130,7 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
             }
             catch (Exception ex)
             {
-                // TODO : Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 메시지 출력 기능 구현 예정 (2024.10.07 jbh)
+                // TODO : Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 메시지 출력 기능 구현 예정 (2024.10.07 minjae)
                 Log.Logger.Error(Logger.GetMethodPath(currentMethod) + Logger.errorMessage + ex.Message);
                 throw;   // 오류 발생시 상위 호출자 예외처리 전달 throw
             }
@@ -156,13 +156,13 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
 
             try
             {
-                // TODO : Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 메시지 출력 기능 구현 예정 (2024.10.08 jbh)
+                // TODO : Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 메시지 출력 기능 구현 예정 (2024.10.08 minjae)
 
                 // HttpClient 클래스 객체 "client"의 요청헤더(DefaultRequestHeaders)에 데이터 추가 하기 전 초기화
                 client.DefaultRequestHeaders.Clear();
 
                 // TODO : 로그인 JWT 토큰 값 들어있는 string 클래스 객체 "authorization"를 bearer 토큰으로 변환하기 위해 문자열 "bearer " 추가해서
-                // HttpClient 요청 헤더 client.DefaultRequestHeaders에 추가(TryAddWithoutValidation) (2024.10.08 jbh)
+                // HttpClient 요청 헤더 client.DefaultRequestHeaders에 추가(TryAddWithoutValidation) (2024.10.08 minjae)
                 // 추후 인재 INC와 소통 진행 -> JWT 토큰 또는 bearer 토큰 둘 중에 하나로 통일 예정 
                 // 최종 결과 - client.DefaultRequestHeaders.Clear(); 사용하면 bearer 토큰 쓸 필요 없이 JWT 토큰만으로 사용 가능
 
@@ -171,7 +171,7 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
                 client.DefaultRequestHeaders.TryAddWithoutValidation(ContainerHelper.tenant, requestHeader.GetTenant());
                 client.DefaultRequestHeaders.TryAddWithoutValidation(ContainerHelper.access, requestHeader.GetAccess());
 
-                // TODO : StringBuilder 클래스 객체 requestSb 생성 -> 8. 연관 컨테이너 목록 조회 URL 주소에 문자열 추가 (2024.10.08 jbh)
+                // TODO : StringBuilder 클래스 객체 requestSb 생성 -> 8. 연관 컨테이너 목록 조회 URL 주소에 문자열 추가 (2024.10.08 minjae)
                 // StringBuilder vs String 비교 
                 // 참고 URL - https://afsdzvcx123.tistory.com/entry/C-%ED%99%9C%EC%9A%A9-String-StringBuilder-%EC%84%B1%EB%8A%A5-%EC%B0%A8%EC%9D%B4
                 StringBuilder requestSb = new StringBuilder(ContainerHelper.requestLinkedContainerURL);
@@ -183,7 +183,7 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
 
                 var requestLinkedNodeInfoURL = requestSb.ToString();
 
-                // TODO : HttpClient Get 방식으로 서버에 요청할 때, using 문 사용 (2024.10.08 jbh)
+                // TODO : HttpClient Get 방식으로 서버에 요청할 때, using 문 사용 (2024.10.08 minjae)
                 // 참고 URL - https://learn.microsoft.com/ko-kr/dotnet/fundamentals/networking/http/httpclient
                 using HttpResponseMessage response = await client.GetAsync(requestLinkedNodeInfoURL);
 
@@ -194,7 +194,7 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
                 {
                     var jtmp = (JsonObject.Parse(resMsg)[ContainerHelper.resultData] as JsonArray).Select(x => x);
 
-                    // TODO : 연관 컨테이너 리스트에 속한 컨테이너 데이터 Dictionary 객체의 Key "containerId"의 값(Value)을 기준으로 오름차순(OrderBy) 정렬하여 리스트 구현 (2024.10.08 jbh)
+                    // TODO : 연관 컨테이너 리스트에 속한 컨테이너 데이터 Dictionary 객체의 Key "containerId"의 값(Value)을 기준으로 오름차순(OrderBy) 정렬하여 리스트 구현 (2024.10.08 minjae)
                     // 참고 URL   - https://codechacha.com/ko/csharp-sort-list/
                     // 참고 2 URL - https://developer-talk.tistory.com/694
                     // 참고 3 URL - https://developer-talk.tistory.com/210
@@ -211,7 +211,7 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
             }
             catch (Exception ex)
             {
-                // TODO : Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 메시지 출력 기능 구현 예정 (2024.10.08 jbh)
+                // TODO : Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 메시지 출력 기능 구현 예정 (2024.10.08 minjae)
                 Log.Logger.Error(Logger.GetMethodPath(currentMethod) + Logger.errorMessage + ex.Message);
                 throw;   // 오류 발생시 상위 호출자 예외처리 전달 throw 
             }
@@ -240,9 +240,9 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
 
             string downloadFilePath = string.Empty;     // 다운로드 받으려고 하는 최종 파일 경로 (파일 전체 경로 + 이름 중복일 때 변경된 파일 이름)
 
-            // TODO : 다른 PC에서도 파일 다운로드 기능이 실행될 수 있도록 다운로드 받을 파일 경로 "dirPath"의 루트 디렉토리 값을 내문서 폴더 (Environment.SpecialFolder.MyDocuments)로 설정 (2024.10.08 jbh)
+            // TODO : 다른 PC에서도 파일 다운로드 기능이 실행될 수 있도록 다운로드 받을 파일 경로 "dirPath"의 루트 디렉토리 값을 내문서 폴더 (Environment.SpecialFolder.MyDocuments)로 설정 (2024.10.08 minjae)
             // 참고 URL - https://learn.microsoft.com/ko-kr/dotnet/api/system.environment.specialfolder?view=net-7.0
-            // TODO : 메서드 Assembly.GetCallingAssembly() 사용하여 비동기 메서드 "GetCheckOutAsync" 호출한 어셈블리 (CobimPalette) 문자열 가져올 때 실패한 원인(문자열 "System.Private.CoreLib" 으로 리턴) 파악 예정 (2024.10.08 jbh)
+            // TODO : 메서드 Assembly.GetCallingAssembly() 사용하여 비동기 메서드 "GetCheckOutAsync" 호출한 어셈블리 (CobimPalette) 문자열 가져올 때 실패한 원인(문자열 "System.Private.CoreLib" 으로 리턴) 파악 예정 (2024.10.08 minjae)
             // 참고 URL - https://learn.microsoft.com/ko-kr/dotnet/api/system.reflection.assembly.getcallingassembly?view=net-8.0
             // string dirPath = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\COBIM\\{Assembly.GetCallingAssembly().GetName().Name}\\{containerPack.GetProjectId()}\\{containerPack.GetTeamId()}\\{containerPack.GetContainerId()}";
             string dirPath = $"{commonDirectoryPath}\\{containerPack.GetProjectId()}\\{containerPack.GetTeamId()}\\{containerPack.GetContainerId()}";
@@ -254,7 +254,7 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
 
             try
             {
-                // TODO : Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 메시지 출력 기능 구현 예정 (2024.10.08 jbh)
+                // TODO : Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 메시지 출력 기능 구현 예정 (2024.10.08 minjae)
 
                 // HttpClient 클래스 객체 "client"의 요청헤더(DefaultRequestHeaders)에 데이터 추가 하기 전 초기화
                 client.DefaultRequestHeaders.Clear();
@@ -264,12 +264,12 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
                 client.DefaultRequestHeaders.TryAddWithoutValidation(ContainerHelper.tenant, requestHeader.GetTenant());
                 client.DefaultRequestHeaders.TryAddWithoutValidation(ContainerHelper.access, requestHeader.GetAccess());
 
-                // TODO : StringBuilder 클래스 객체 requestSb 생성 -> 10. 컨테이너 체크아웃 + (파일)다운로드 Rest API URL 주소에 문자열 추가 (2024.10.08 jbh)
+                // TODO : StringBuilder 클래스 객체 requestSb 생성 -> 10. 컨테이너 체크아웃 + (파일)다운로드 Rest API URL 주소에 문자열 추가 (2024.10.08 minjae)
                 // StringBuilder vs String 비교 
                 // 참고 URL - https://afsdzvcx123.tistory.com/entry/C-%ED%99%9C%EC%9A%A9-String-StringBuilder-%EC%84%B1%EB%8A%A5-%EC%B0%A8%EC%9D%B4
 
                 // TODO : 서버에 Http 통신(Get) 테스트 진행시 아래 URL 주소에 테스트 프로젝트 아이디 "jc-constrct", 팀아이디를 "inc-001-jc-constrct-t001" 메서드 파라미터로 넘겨 받아서 
-                // Http Get 방식으로 호출해서 10. 컨테이너 체크아웃 + (파일)다운로드 Rest API 테스트 진행 (2024.10.08 jbh)
+                // Http Get 방식으로 호출해서 10. 컨테이너 체크아웃 + (파일)다운로드 Rest API 테스트 진행 (2024.10.08 minjae)
                 // 테스트용 URL 주소 - requestCheckOutURL = "https://cobim.io/api/explorer/container/checkout/jc-constrct/inc-001-jc-constrct-t001/jc-constrct-ijinc-sptl_902-func_010-006";
                 StringBuilder requestSb = new StringBuilder(ContainerHelper.requestCheckOutURL);
                 requestSb.Append(containerPack.GetProjectId());
@@ -280,7 +280,7 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
 
                 var requestCheckOutURL = requestSb.ToString();
 
-                // TODO : HttpClient Get 방식으로 서버에 요청할 때, using 문 사용 (2024.10.08 jbh)
+                // TODO : HttpClient Get 방식으로 서버에 요청할 때, using 문 사용 (2024.10.08 minjae)
                 // 참고 URL - https://learn.microsoft.com/ko-kr/dotnet/fundamentals/networking/http/httpclient
                 using HttpResponseMessage response = await client.GetAsync(requestCheckOutURL);
 
@@ -297,11 +297,11 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
                     // 새로 다운로드 받으려는 파일 전체 경로 - dirPath + 파일이름 - fi.Name 구하기
                     downloadFilePath = FileHelper.FileDownLoadPath(dirPath, containerPack, fi.Name);
 
-                    // TODO : 해당 using 문장을 벗어나면 FileStream 클래스 객체 fs Dipose 처리 (리소스 해제 및 자원 반납) 구현 (2024.10.08 jbh)
+                    // TODO : 해당 using 문장을 벗어나면 FileStream 클래스 객체 fs Dipose 처리 (리소스 해제 및 자원 반납) 구현 (2024.10.08 minjae)
                     //        아래 소스코드를 using문으로 구현 안하고 실행시 파일을 생성되나 FileStream 클래스 객체 fs가 close 처리가 자동으로 되지 않아서 
                     //        다운로드 받은 이미지 파일(.jpg, .png 등등...)을 열어도 손상된 상태라고 하며 이미지를 볼 수 없으니 주의해야 한다.
                     // 참고 URL - https://hongjinhyeon.tistory.com/92
-                    // TODO : HttpClient 클래스 객체 client 사용 URL을 이용한 파일 다운로드 구현 (2024.10.08 jbh)
+                    // TODO : HttpClient 클래스 객체 client 사용 URL을 이용한 파일 다운로드 구현 (2024.10.08 minjae)
                     // 참고 URL - https://asecurity.dev/entry/NET-Download-file-from-HttpClientWebClient
                     // 참고 2 URL - https://stackoverflow.com/questions/45711428/download-file-with-webclient-or-httpclient
 
@@ -326,7 +326,7 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
             }
             catch (Exception ex)
             {
-                // TODO : Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 메시지 출력 기능 구현 예정 (2024.10.08 jbh)
+                // TODO : Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 메시지 출력 기능 구현 예정 (2024.10.08 minjae)
                 Log.Logger.Error(Logger.GetMethodPath(currentMethod) + Logger.errorMessage + ex.Message);
                 throw;   // 오류 발생시 상위 호출자 예외처리 전달 throw 
             }
@@ -353,7 +353,7 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
 
             try
             {
-                // TODO : 2024년 10월 COBIM 시연회 종료후 Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 로그 기록 및 Rest API 메서드 종료 기능 구현 예정 (2024.10.11 jbh)
+                // TODO : 2024년 10월 COBIM 시연회 종료후 Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 로그 기록 및 Rest API 메서드 종료 기능 구현 예정 (2024.10.11 minjae)
 
                 // HttpClient 클래스 객체 "client"의 요청헤더(DefaultRequestHeaders)에 데이터 추가 하기 전 초기화
                 client.DefaultRequestHeaders.Clear();
@@ -363,22 +363,22 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
                 client.DefaultRequestHeaders.TryAddWithoutValidation(ContainerHelper.tenant, requestHeader.GetTenant());
                 client.DefaultRequestHeaders.TryAddWithoutValidation(ContainerHelper.access, requestHeader.GetAccess());
 
-                // TODO : HttpClient Post 방식으로 서버에 요청할 때, using 문 사용 (2024.10.11 jbh)
+                // TODO : HttpClient Post 방식으로 서버에 요청할 때, using 문 사용 (2024.10.11 minjae)
                 // 참고 URL - https://learn.microsoft.com/ko-kr/dotnet/fundamentals/networking/http/httpclient
 
-                // TODO : HttpClient Post 방식으로 서버에 요청할 때, 요청 데이터 (form-data) 형식(Dictionary 방식)으로 객체 "var formContent" 구현 (2024.10.11 jbh)
+                // TODO : HttpClient Post 방식으로 서버에 요청할 때, 요청 데이터 (form-data) 형식(Dictionary 방식)으로 객체 "var formContent" 구현 (2024.10.11 minjae)
                 // 참고 URL - https://stackoverflow.com/questions/20005355/how-to-post-data-using-httpclient
 
-                // TODO : 자바 스프링(Java Spring) 오류 메시지 "org.springframework.validation.BindException" 출력 원인 파악 (2024.10.11 jbh)
+                // TODO : 자바 스프링(Java Spring) 오류 메시지 "org.springframework.validation.BindException" 출력 원인 파악 (2024.10.11 minjae)
                 // 참고 URL - https://jy-note.tistory.com/7
 
-                // TODO : HttpClient Post 방식으로 요청 데이터 (form-data) 중 파일 업로드 형식(upload file form) 구현 (2024.10.11 jbh)
+                // TODO : HttpClient Post 방식으로 요청 데이터 (form-data) 중 파일 업로드 형식(upload file form) 구현 (2024.10.11 minjae)
                 // 참고 URL - https://brokul.dev/sending-files-and-additional-data-using-httpclient-in-net-core
                 var strCnt = new StreamContent(filePack.GetUploadFiles());
                 var fCnt = new ByteArrayContent(strCnt.ReadAsByteArrayAsync().Result);
                 fCnt.Headers.ContentType = MediaTypeHeaderValue.Parse(ContainerHelper.formDataContentType);
 
-                // TODO : HttpClient Post 방식으로 요청 데이터 (form-data) 중 파일 업로드 형식(upload file form) 구현 (2024.10.11 jbh)
+                // TODO : HttpClient Post 방식으로 요청 데이터 (form-data) 중 파일 업로드 형식(upload file form) 구현 (2024.10.11 minjae)
                 // 참고 URL - https://stackoverflow.com/questions/16416601/c-sharp-httpclient-4-5-multipart-form-data-upload
                 using var formContent = new MultipartFormDataContent
                 { 
@@ -391,13 +391,13 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
                     { fCnt, ContainerHelper.uploadFiles, filePack.GetFileName() }
                 };
 
-                // TODO : StringBuilder 클래스 객체 requestSb 생성 -> 11. 컨테이너 체크인 + 업로드 (POST) Rest API URL 주소에 문자열 추가 (2024.10.11 jbh)
+                // TODO : StringBuilder 클래스 객체 requestSb 생성 -> 11. 컨테이너 체크인 + 업로드 (POST) Rest API URL 주소에 문자열 추가 (2024.10.11 minjae)
                 // StringBuilder vs String 비교 
                 // 참고 URL - https://afsdzvcx123.tistory.com/entry/C-%ED%99%9C%EC%9A%A9-String-StringBuilder-%EC%84%B1%EB%8A%A5-%EC%B0%A8%EC%9D%B4
 
                 // TODO : 서버에 Http 통신(POST) 테스트 진행시 아래 URL 주소에 테스트 프로젝트 아이디 "jc-constrct", 팀 아이디 "inc-001-jc-constrct-t001"
                 //        컨테이너 아이디 "jc-constrct-ijinc-sptl_902-func_010-006" 메서드 파라미터로 넘겨 받아서 
-                //        Http POST 방식으로 호출해서 11. 컨테이너 체크인 + 업로드 (POST) Rest API 테스트 진행 (2024.10.11 jbh)
+                //        Http POST 방식으로 호출해서 11. 컨테이너 체크인 + 업로드 (POST) Rest API 테스트 진행 (2024.10.11 minjae)
                 // 테스트용 URL 주소 - requestCheckOutURL = "https://cobim.io/api/explorer/container/checkin/jc-constrct/inc-001-jc-constrct-t001/jc-constrct-ijinc-sptl_902-func_010-006";
                 StringBuilder requestSb = new StringBuilder(ContainerHelper.requestCheckInURL);
                 requestSb.Append(containerPack.GetProjectId());
@@ -408,14 +408,14 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
 
                 var requestCheckInURL = requestSb.ToString();
 
-                // TODO : HttpClient Post 방식으로 서버에 요청할 때, using 문 사용 (2024.10.11 jbh)
+                // TODO : HttpClient Post 방식으로 서버에 요청할 때, using 문 사용 (2024.10.11 minjae)
                 // 참고 URL - https://learn.microsoft.com/ko-kr/dotnet/fundamentals/networking/http/httpclient
-                // TODO : HttpClient Post 방식으로 서버에 요청할 때, 요청 데이터 (form-data) 형식(Dictionary 방식)으로 객체 "var formContent"구현 (2024.10.11 jbh)
+                // TODO : HttpClient Post 방식으로 서버에 요청할 때, 요청 데이터 (form-data) 형식(Dictionary 방식)으로 객체 "var formContent"구현 (2024.10.11 minjae)
                 // 참고 URL - https://stackoverflow.com/questions/20005355/how-to-post-data-using-httpclient
                 using HttpResponseMessage response = await client.PostAsync(requestCheckInURL, formContent);
 
                 // TODO : 인재 INC에서 개발한 서버측에서 전달 받은 오류 메시지 "{"status":"io.jsonwebtoken.MalformedJwtException: JWT strings must contain exactly 2 period characters. Found: 10","message":"JWT strings must contain exactly 2 period characters. Found: 10","error":"io.jsonwebtoken.MalformedJwtException"}"
-                //        해당 오류 메시지의 원인은 JWT 토큰을 파싱하는 과정에서 발생한 오류로 확인. 해당 오류 원인 파악 후 로직 수정 예정 (2024.10.11 jbh)
+                //        해당 오류 메시지의 원인은 JWT 토큰을 파싱하는 과정에서 발생한 오류로 확인. 해당 오류 원인 파악 후 로직 수정 예정 (2024.10.11 minjae)
                 //        참고 URL - https://cano721.tistory.com/216
                 //        참고 2 URL - https://stackoverflow.com/questions/53949137/jwt-strings-must-contain-exactly-2-period-characters-found-0
                 //        참고 3 URL - https://velog.io/@jiu_lee/Project-%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8-%EC%B0%BE%EA%B8%B0-with-JWT
@@ -424,12 +424,12 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
                 // Rest API 11. 컨테이너 체크인 + 업로드 Http 통신 결과가 성공할 경우 
                 if (HttpStatusCode.OK == response.StatusCode)
                 {
-                    // TODO : 서버로 부터 받은 json 데이터에 속한 "resultData" 영역이 리스트가 아니기 때문에 아래처럼 (JsonObject.Parse(resMsg) 사용 -> JsonNode(JsonObject 배열) 형식으로 변환 후 JSON 문자열 변환(ToJsonString()) (2024.10.11 jbh)
+                    // TODO : 서버로 부터 받은 json 데이터에 속한 "resultData" 영역이 리스트가 아니기 때문에 아래처럼 (JsonObject.Parse(resMsg) 사용 -> JsonNode(JsonObject 배열) 형식으로 변환 후 JSON 문자열 변환(ToJsonString()) (2024.10.11 minjae)
                     // 참고 URL - https://stackoverflow.com/questions/76035924/c-sharp-list-field-names-in-a-jsonobject-or-jsonnode
                     // 참고 2 URL - https://learn.microsoft.com/ko-kr/dotnet/api/system.text.json.nodes.jsonnode.tojsonstring?view=net-8.0
                     var jtmp = (JsonObject.Parse(resMsg)[ContainerHelper.resultData]).ToJsonString();
 
-                    // TODO : JsonString 객체 jtmp를 Dictionary<string, object> 클래스 객체 "resultData"로 변환할 수 있도록 JsonSerializer.Deserialize 진행 (2024.10.11 jbh)
+                    // TODO : JsonString 객체 jtmp를 Dictionary<string, object> 클래스 객체 "resultData"로 변환할 수 있도록 JsonSerializer.Deserialize 진행 (2024.10.11 minjae)
                     // 참고 URL - https://stackoverflow.com/questions/70111672/read-from-json-file-into-ienumerable-using-system-text-json
                     var resultData = JsonSerializer.Deserialize<Dictionary<string, object>>(jtmp);
 
@@ -442,7 +442,7 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
             }
             catch (Exception ex)
             {
-                // TODO : 2024년 10월 COBIM 시연회 종료후 Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 로그 기록 및 Rest API 메서드 종료 기능 구현 예정 (2024.10.11 jbh)
+                // TODO : 2024년 10월 COBIM 시연회 종료후 Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 로그 기록 및 Rest API 메서드 종료 기능 구현 예정 (2024.10.11 minjae)
 
                 Log.Logger.Error(Logger.GetMethodPath(currentMethod) + Logger.errorMessage + ex.Message);
                 throw;   // 오류 발생시 상위 호출자 예외처리 전달 throw
@@ -455,13 +455,13 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
 
         // TODO : WebView2ExplorerView.cs 소스파일에 속한
         //        컨테이너 작업 취소 정보 클래스 "CancelWorkPack"안에 속하는 프로퍼티 "projectId", "teamId", "containerId" 의 접근 제한자를 
-        //        private로 설정하면 오류 발생하여 접근 제한자를 public으로 수정함. (2024.11.04 jbh)
+        //        private로 설정하면 오류 발생하여 접근 제한자를 public으로 수정함. (2024.11.04 minjae)
         //        오류 발생 위치 - ExplorerRestServer.cs -> 비동기 메서드 "PostCancelWorkAsync" 
         //        -> 메서드 "JsonSerializer.Serialize" 호출하여 json 문자열(content)을 제대로 리턴 받지 못하고 오류 발생함. 
 
         // TODO : WebView2ExplorerView.cs 소스파일에 속한
         //        컨테이너 작업 취소 정보 클래스 "CancelWorkPack"안에 속하는 프로퍼티 "projectId", "teamId", "containerId" 프로퍼티 이름 
-        //        변경하면 오류 발생하여 수정 안 하고 그대로 유지함.(2024.11.04 jbh)
+        //        변경하면 오류 발생하여 수정 안 하고 그대로 유지함.(2024.11.04 minjae)
         //        오류 발생 위치 - ExplorerRestServer.cs -> 비동기 메서드 "PostCancelWorkAsync" 
         //        서버로 부터 제대로 리턴 받지 못하고 오류 발생함. 
 
@@ -479,7 +479,7 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
 
             try
             {
-                // TODO : Http 통신 Post 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 메시지 출력 기능 구현 예정 (2023.12.01 jbh)
+                // TODO : Http 통신 Post 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 메시지 출력 기능 구현 예정 (2023.12.01 minjae)
 
                 // HttpClient 클래스 객체 "client"의 요청헤더(DefaultRequestHeaders)에 데이터 추가 하기 전 초기화
                 client.DefaultRequestHeaders.Clear();
@@ -489,15 +489,15 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
                 client.DefaultRequestHeaders.TryAddWithoutValidation(ContainerHelper.tenant, requestHeader.GetTenant());
                 client.DefaultRequestHeaders.TryAddWithoutValidation(ContainerHelper.access, requestHeader.GetAccess());
 
-                // TODO : 컨테이너 작업 취소 정보 CancelWorkPack 클래스 객체 "cancelWorkPack" string 클래스 json 문자열(content) 구현 (2023.12.20 jbh)
+                // TODO : 컨테이너 작업 취소 정보 CancelWorkPack 클래스 객체 "cancelWorkPack" string 클래스 json 문자열(content) 구현 (2023.12.20 minjae)
                 // 참고 URL - https://learn.microsoft.com/ko-kr/dotnet/standard/serialization/system-text-json/how-to?pivots=dotnet-8-0
                 // json 문자열(하드코딩) 생성 코드 예시 -> (예) string requestData = "{\"id\":\"\",\"password\":\"\",\"inputTenantId\":\"inc-001\"}";
                 string requestData = JsonSerializer.Serialize(cancelWorkPack);
 
-                // TODO : HttpClient Post 방식으로 서버에 요청할 때, using 문 사용 (2023.12.06 jbh)
+                // TODO : HttpClient Post 방식으로 서버에 요청할 때, using 문 사용 (2023.12.06 minjae)
                 // 참고 URL - https://learn.microsoft.com/ko-kr/dotnet/fundamentals/networking/http/httpclient
-                // TODO : 메서드 "StringContent"에 메서드 파라미터 Encoding 클래스 객체 "Encoding.UTF8" 제거 (2023.12.20 jbh)
-                // TODO : 오류 메시지 "{"status":"org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'text/plain;charset=utf-8' not supported","message":"Content type 'text/plain;charset=utf-8' not supported","error":"org.springframework.web.HttpMediaTypeNotSupportedException"}" 원인 파악 하기 (2023.12.20 jbh)
+                // TODO : 메서드 "StringContent"에 메서드 파라미터 Encoding 클래스 객체 "Encoding.UTF8" 제거 (2023.12.20 minjae)
+                // TODO : 오류 메시지 "{"status":"org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'text/plain;charset=utf-8' not supported","message":"Content type 'text/plain;charset=utf-8' not supported","error":"org.springframework.web.HttpMediaTypeNotSupportedException"}" 원인 파악 하기 (2023.12.20 minjae)
                 //        오류 메시지 원인은 Content type을 추가하지 않을 경우 자동 생성되는 Content type이 "text/plain"이라서 발생한 오류이다.
                 //        하여 아래처럼  Content type을 "LoginHelper.contentType(== "application/json")" 변경해야 한다.
                 // 참고 URL - https://velog.io/@ds257873/Content-type-textplaincharsetUTF-8-not-supported
@@ -507,13 +507,13 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
                                                 ContainerHelper.contentType
                                             );
 
-                // TODO : StringBuilder 클래스 객체 requestSb 생성 -> 17. 컨테이너 작업 취소 (POST) Rest API URL 주소에 문자열 추가 (2023.12.20 jbh)
+                // TODO : StringBuilder 클래스 객체 requestSb 생성 -> 17. 컨테이너 작업 취소 (POST) Rest API URL 주소에 문자열 추가 (2023.12.20 minjae)
                 // StringBuilder vs String 비교 
                 // 참고 URL - https://afsdzvcx123.tistory.com/entry/C-%ED%99%9C%EC%9A%A9-String-StringBuilder-%EC%84%B1%EB%8A%A5-%EC%B0%A8%EC%9D%B4
 
                 // TODO : 서버에 Http 통신(POST) 테스트 진행시 아래 URL 주소에 테스트 프로젝트 아이디 "jc-constrct", 팀 아이디 "inc-001-jc-constrct-t001"
                 //        메서드 파라미터로 넘겨 받아서 Http POST 방식으로 호출 및
-                //        17. 컨테이너 작업 취소 (POST) Rest API 테스트 진행 (2023.12.20 jbh)
+                //        17. 컨테이너 작업 취소 (POST) Rest API 테스트 진행 (2023.12.20 minjae)
                 // 테스트용 URL 주소 - requestCancelWorkURL = "https://cobim.io/api/explorer/container/work/cancel/jc-constrct/inc-001-jc-constrct-t001";
                 StringBuilder requestSb = new StringBuilder(ContainerHelper.requestCancelWorkURL);
                 requestSb.Append(cancelWorkPack.projectId);
@@ -524,18 +524,18 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
 
                 Debug.WriteLine($"{requestCancelWorkURL}");
 
-                // TODO : HttpClient Post 방식으로 서버에 요청할 때, using 문 사용 (2023.12.20 jbh)
+                // TODO : HttpClient Post 방식으로 서버에 요청할 때, using 문 사용 (2023.12.20 minjae)
                 // 참고 URL - https://learn.microsoft.com/ko-kr/dotnet/fundamentals/networking/http/httpclient   
                 using HttpResponseMessage response = await client.PostAsync(requestCancelWorkURL, jsonContent);
 
-                // TODO : 필요시 토큰 만료된 경우 요청 헤더(requestHeader) 재발급 토큰(RefreshToken) 추가 및 HttpClient 클래스 객체 "client"에 추가 구현 예정 (2024.11.12 jbh)
+                // TODO : 필요시 토큰 만료된 경우 요청 헤더(requestHeader) 재발급 토큰(RefreshToken) 추가 및 HttpClient 클래스 객체 "client"에 추가 구현 예정 (2024.11.12 minjae)
 
                 // TODO : 인재 INC에서 개발한 서버측에서 전달 받은 오류 메시지 "{"status":"io.jsonwebtoken.MalformedJwtException: JWT strings must contain exactly 2 period characters. Found: 10","message":"JWT strings must contain exactly 2 period characters. Found: 10","error":"io.jsonwebtoken.MalformedJwtException"}"
-                //        해당 오류 메시지의 원인은 JWT 토큰을 파싱하는 과정에서 발생한 오류로 확인. 해당 오류 원인 파악 후 로직 수정 예정 (2023.12.20 jbh)
+                //        해당 오류 메시지의 원인은 JWT 토큰을 파싱하는 과정에서 발생한 오류로 확인. 해당 오류 원인 파악 후 로직 수정 예정 (2023.12.20 minjae)
                 //        참고 URL - https://cano721.tistory.com/216
                 //        참고 2 URL - https://stackoverflow.com/questions/53949137/jwt-strings-must-contain-exactly-2-period-characters-found-0
                 //        참고 3 URL - https://velog.io/@jiu_lee/Project-%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8-%EC%B0%BE%EA%B8%B0-with-JWT
-                // TODO : 오류 메시지 "{"status":"org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'text/plain;charset=utf-8' not supported","message":"Content type 'text/plain;charset=utf-8' not supported","error":"org.springframework.web.HttpMediaTypeNotSupportedException"}" 원인 파악 후 해결 진행 예정 (2023.12.20 jbh)
+                // TODO : 오류 메시지 "{"status":"org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'text/plain;charset=utf-8' not supported","message":"Content type 'text/plain;charset=utf-8' not supported","error":"org.springframework.web.HttpMediaTypeNotSupportedException"}" 원인 파악 후 해결 진행 예정 (2023.12.20 minjae)
                 string resMsg = await response.Content.ReadAsStringAsync();
 
                 Console.WriteLine($"{resMsg}\n");
@@ -544,12 +544,12 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
                 if (HttpStatusCode.OK == response.StatusCode)
                 {
                     // var jtmp = (JsonObject.Parse(resMsg)[ContainerHelper.resultData]).Select(x => x);
-                    // TODO : 서버로 부터 받은 resMsg 데이터에 속한 "resultData" 영역이 리스트가 아니기 때문에 아래처럼 (JsonObject.Parse(resMsg) 사용 -> JsonNode(JsonObject 배열) 형식으로 변환 후 JSON 문자열 변환(ToJsonString()) (2023.12.20 jbh)
+                    // TODO : 서버로 부터 받은 resMsg 데이터에 속한 "resultData" 영역이 리스트가 아니기 때문에 아래처럼 (JsonObject.Parse(resMsg) 사용 -> JsonNode(JsonObject 배열) 형식으로 변환 후 JSON 문자열 변환(ToJsonString()) (2023.12.20 minjae)
                     // 참고 URL - https://stackoverflow.com/questions/76035924/c-sharp-list-field-names-in-a-jsonobject-or-jsonnode
                     // 참고 2 URL - https://learn.microsoft.com/ko-kr/dotnet/api/system.text.json.nodes.jsonnode.tojsonstring?view=net-8.0
                     var jtmp = (JsonObject.Parse(resMsg)[ContainerHelper.resultData]).ToJsonString();
 
-                    // TODO : JsonString 객체 jtmp를 Dictionary<string, object> 클래스 객체 "resultData"로 변환할 수 있도록 JsonSerializer.Deserialize 진행 (2023.12.20 jbh)
+                    // TODO : JsonString 객체 jtmp를 Dictionary<string, object> 클래스 객체 "resultData"로 변환할 수 있도록 JsonSerializer.Deserialize 진행 (2023.12.20 minjae)
                     // 참고 URL - https://stackoverflow.com/questions/70111672/read-from-json-file-into-ienumerable-using-system-text-json
                     var resultData = JsonSerializer.Deserialize<Dictionary<string, object>>(jtmp);
 
@@ -563,10 +563,10 @@ namespace CobimPalette.Rest.Api.CobimBase.WebView2Explorer
             }
             catch (Exception ex)
             {
-                // TODO : Http 통신 Post 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 메시지 출력 기능 구현 예정 (2023.12.20 jbh)
+                // TODO : Http 통신 Post 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 메시지 출력 기능 구현 예정 (2023.12.20 minjae)
                 // Log.Information(LogHelper.GetMethodPath(currentMethod) + ex.Message);
                 Log.Logger.Error(Logger.GetMethodPath(currentMethod) + Logger.errorMessage + ex.Message);
-                // TODO : 오류 발생시 상위 호출자 예외처리 전달 throw 구현 (2023.12.20 jbh)
+                // TODO : 오류 발생시 상위 호출자 예외처리 전달 throw 구현 (2023.12.20 minjae)
                 // 참고 URL - https://devlog.jwgo.kr/2009/11/27/thrownthrowex/
                 throw;
             }

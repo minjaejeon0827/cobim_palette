@@ -15,8 +15,8 @@ namespace CobimNet
         public static void StaticChanged([CallerMemberName] string name = null)
         {
             PropertyChangedEventHandler staticPropertyChanged = BindableBase.StaticPropertyChanged;
-            // TODO : if Á¶°ÇÀý¿¡ == null º¸´Ù ºü¸¥ is null ¿¬»êÀÚ »ç¿ë (2024.08.14 jbh)
-            // Âü°í URL - https://husk321.tistory.com/405
+            // TODO : if ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ == null ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ is null ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ (2024.08.14 minjae)
+            // ï¿½ï¿½ï¿½ï¿½ URL - https://husk321.tistory.com/405
             if (staticPropertyChanged is null)
                 return;
             staticPropertyChanged((object)null, new PropertyChangedEventArgs(name));
@@ -74,18 +74,18 @@ namespace CobimNet
             if (false == this.EnablePropertyChanged)
                 return;
             // PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            // TODO : if Á¶°ÇÀý¿¡ != null º¸´Ù ºü¸¥ is not null ¿¬»êÀÚ »ç¿ë (2024.08.14 jbh)
-            // Âü°í URL - https://husk321.tistory.com/405
+            // TODO : if ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ != null ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ is not null ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ (2024.08.14 minjae)
+            // ï¿½ï¿½ï¿½ï¿½ URL - https://husk321.tistory.com/405
             //if(propertyChanged is not null)
             //   propertyChanged((object)this, new PropertyChangedEventArgs(name));
 
-            // PropertyChanged °¡ nullÀÌ ¾Æ´Ï¸é Invoke¸¦ È£ÃâÇÑ´Ù
-            // Âü°í URL - https://m.cafe.daum.net/aspdotnet/6TQG/3149
-            // Âü°í 2 URL - https://hwigyeom.ntils.com/3
-            // Âü°í 3 URL - https://cafe.daum.net/aspdotnet/WJSu/65
+            // PropertyChanged ï¿½ï¿½ nullï¿½ï¿½ ï¿½Æ´Ï¸ï¿½ Invokeï¿½ï¿½ È£ï¿½ï¿½ï¿½Ñ´ï¿½
+            // ï¿½ï¿½ï¿½ï¿½ URL - https://m.cafe.daum.net/aspdotnet/6TQG/3149
+            // ï¿½ï¿½ï¿½ï¿½ 2 URL - https://hwigyeom.ntils.com/3
+            // ï¿½ï¿½ï¿½ï¿½ 3 URL - https://cafe.daum.net/aspdotnet/WJSu/65
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-            // TODO : ÃßÈÄ ÇÊ¿ä½Ã ÇÁ·ÎÆÛÆ¼ "IsPropertyChanged" »ç¿ë ¿¹Á¤ (2024.08.14 jbh)
+            // TODO : ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ "IsPropertyChanged" ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (2024.08.14 minjae)
             // this.IsPropertyChanged = true;
         }
 

@@ -106,11 +106,11 @@ namespace CobimPalette.Common.RibbonBase
         /// </summary>
         public const string CommandParam_CmdWebExplorer = "CmdWebExplorer ";
 
-        // TODO : 아래 주석친 코드 필요시 참고 (2024.12.10 jbh)
+        // TODO : 아래 주석친 코드 필요시 참고 (2024.12.10 minjae)
         // TODO : CommandParameter - 성과품(CDE), HubBox, (주)상상진화 (기업 홈페이지) 문자열 끝에 공백 문자(" ") 포함 안 하면
         //        AutoCAD2025 애드인 프로그램 -> 리본 버튼 클릭시 Command.cs 소스 파일
         //        메서드 "WebView2CDE", "CmdHubBox", "CmdImagineBuilder" 정상적으로 실행 안 함.
-        //        하여 문자열 끝에 공백 문자(" ") 포함 하도록 구현 (2024.11.07 jbh)
+        //        하여 문자열 끝에 공백 문자(" ") 포함 하도록 구현 (2024.11.07 minjae)
         //        공백 문자(" ") 포함 예시 - "WebView2CDE ", "CmdHubBox ", "CmdImagineBuilder "
         /// <summary>
         /// CommandParameter - 성과품(CDE)

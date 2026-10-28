@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CobimPalette.Services
 {
-    // TODO : 필요시 윈도우 핸들 클래스 CobimWindowHandle 사용 예정 (2024.11.28 jbh)
+    // TODO : 필요시 윈도우 핸들 클래스 CobimWindowHandle 사용 예정 (2024.11.28 minjae)
     // 참고 URL - https://www.codeproject.com/Articles/24403/Parent-Process-Window
     /// <summary>
     /// Cobim 애드인 프로그램 윈도우 핸들 클래스 

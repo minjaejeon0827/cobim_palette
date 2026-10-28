@@ -40,7 +40,7 @@ namespace CobimPalette.Settings
         #region SetParentDirectoryPath
 
         // TODO : 메서드 "SetParentDirectoryPath" 호출 -> 메서드 Directory.GetParent 호출시 변수 parentDirectoryPath에 담긴 파일의 루트(부모) 폴더가 없는 경우 오류가 발생함.
-        //        하여 해당 메서드 SetParentDirectoryPath 호출문 주석 처리 완료 (2024.10.11 jbh)
+        //        하여 해당 메서드 SetParentDirectoryPath 호출문 주석 처리 완료 (2024.10.11 minjae)
         /// <summary>
         /// DLL 파일(CobimPalette.dll)의 부모 폴더 경로 값 구한 후 셋팅 
         /// </summary>
@@ -62,7 +62,7 @@ namespace CobimPalette.Settings
         //            // dllPath = parentDirName;
 
         //            // TODO : 메서드 Directory.GetParent 호출시 변수 parentDirectoryPath에 담긴 파일의 루트(부모) 폴더가 없는 경우 오류가 발생함.
-        //            //        하여 해당 메서드 Directory.GetParent 호출하는 상위 메서드 "SetParentDirectoryPath" 주석 처리 완료 (2024.10.11 jbh)
+        //            //        하여 해당 메서드 Directory.GetParent 호출하는 상위 메서드 "SetParentDirectoryPath" 주석 처리 완료 (2024.10.11 minjae)
         //            DirectoryInfo parentDirectory = Directory.GetParent(parentDirectoryPath);
         //            parentDirectoryPath = parentDirectory.FullName;
 

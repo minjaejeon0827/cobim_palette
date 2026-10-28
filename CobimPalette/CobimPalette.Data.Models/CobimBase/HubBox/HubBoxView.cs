@@ -7,7 +7,7 @@ namespace CobimPalette.Data.Models.CobimBase.HubBox
     // 참고 URL - http://www.csharpstudy.com/CSharp/CSharp-generics.aspx
     public class HubBoxView<TData> : HubBoxView where TData : HubBoxView<TData> { }
 
-    // TODO : 추후 필요시 HubBox 전용 데이터 모델 클래스 HubBoxView 구현 예정 (2024.10.30 jbh) 
+    // TODO : 추후 필요시 HubBox 전용 데이터 모델 클래스 HubBoxView 구현 예정 (2024.10.30 minjae) 
     /// <summary>
     /// CobimPalette
     /// HubBox 뷰모델(HubBoxVM.cs) HubBox 전용 데이터 모델
@@ -16,7 +16,7 @@ namespace CobimPalette.Data.Models.CobimBase.HubBox
     {
         #region 프로퍼티
 
-        // TODO : Http 웹서버 통신 응답 데이터 프로퍼티 "_ResponseData" 필요시 사용/수정 예정 (2024.10.30 jbh)
+        // TODO : Http 웹서버 통신 응답 데이터 프로퍼티 "_ResponseData" 필요시 사용/수정 예정 (2024.10.30 minjae)
         /// <summary>
         /// Http 웹서버 통신 응답 데이터
         /// </summary>
@@ -38,7 +38,7 @@ namespace CobimPalette.Data.Models.CobimBase.HubBox
 
         #region 생성자
 
-        // TODO : 생성자 "HubBoxView()" 탐색기 화면 뷰모델(ExplorerVM.cs)에서 필요시 호출해서 HubBoxView 클래스 객체 생성 예정 (2024.09.25 jbh)
+        // TODO : 생성자 "HubBoxView()" 탐색기 화면 뷰모델(ExplorerVM.cs)에서 필요시 호출해서 HubBoxView 클래스 객체 생성 예정 (2024.09.25 minjae)
         public HubBoxView() : base() { }
 
         #endregion 생성자 
@@ -230,18 +230,18 @@ namespace CobimPalette.Data.Models.CobimBase.HubBox
         CONTAINERID = 2,
         [Description("folderId")]    // 폴더_아이디
         FOLDERID = 3,
-        // TODO : enum 열거형 구조체 EnumTranslate 멤버 변수 "UPLOADFILE" 필요시 사용 예정 (2024.09.25 jbh)
+        // TODO : enum 열거형 구조체 EnumTranslate 멤버 변수 "UPLOADFILE" 필요시 사용 예정 (2024.09.25 minjae)
         //[Description("uploadFiles")]  // 업로드_파일
         //UPLOADFILES = 4,
         [Description("fileId")]      // 파일_아이디
         FILEID = 4,
         // TODO : 추후 체크인 구현시 업로드 하려는 파일명(UPLOAD_FILENAME)과 기존 체크인 된 파일명(FILENAME)이 다를 경우
-        //        enum 열거형 구조체 EnumCheckIn 멤버 변수 "FILENAME" 사용 예정 (2024.10.11 jbh)
+        //        enum 열거형 구조체 EnumCheckIn 멤버 변수 "FILENAME" 사용 예정 (2024.10.11 minjae)
         // [Description("fileNm")]   // 파일명
         // FILENAME = 5,
         [Description("translate_fileNm")]   // "변환_파일명"
         TRANSLATE_FILENAME = 5,
-        // TODO : enum 열거형 구조체 EnumCheckIn 멤버 변수 "FILESIZE" 필요시 사용 예정 (2024.10.11 jbh)
+        // TODO : enum 열거형 구조체 EnumCheckIn 멤버 변수 "FILESIZE" 필요시 사용 예정 (2024.10.11 minjae)
         // [Description("fileSize")]   // 파일_사이즈
         // FILESIZE    = 6
         [Description("revsnval")]      // 업로드_전_파일_버전
@@ -268,7 +268,7 @@ namespace CobimPalette.Data.Models.CobimBase.HubBox
 
     #region Sample
 
-    // TODO : 추후 필요시 enum 열거형 구조체 EnumTranslate 참고 (2024.10.11 jbh)
+    // TODO : 추후 필요시 enum 열거형 구조체 EnumTranslate 참고 (2024.10.11 minjae)
     //public enum EnumTranslate : int
     //{
     //    [Description("프로젝트_아이디")]
@@ -279,18 +279,18 @@ namespace CobimPalette.Data.Models.CobimBase.HubBox
     //    CONTAINERID = 2,
     //    [Description("폴더_아이디")]
     //    FOLDERID = 3,
-    //    // TODO : enum 열거형 구조체 EnumTranslate 멤버 변수 "UPLOADFILE" 필요시 사용 예정 (2024.09.25 jbh)
+    //    // TODO : enum 열거형 구조체 EnumTranslate 멤버 변수 "UPLOADFILE" 필요시 사용 예정 (2024.09.25 minjae)
     //    //[Description("업로드_파일")]
     //    //UPLOADFILE = 4,
     //    [Description("파일_아이디")]
     //    FILEID = 4,
     //    // TODO : 추후 체크인 구현시 업로드 하려는 파일명(UPLOAD_FILENAME)과 기존 체크인 된 파일명(FILENAME)이 다를 경우
-    //    //        enum 열거형 구조체 EnumCheckIn 멤버 변수 "FILENAME" 사용 예정 (2024.10.11 jbh)
+    //    //        enum 열거형 구조체 EnumCheckIn 멤버 변수 "FILENAME" 사용 예정 (2024.10.11 minjae)
     //    // [Description("파일명")]
     //    // FILENAME = 5,
     //    [Description("변환_파일명")]
     //    TRANSLATE_FILENAME = 5,
-    //    // TODO : enum 열거형 구조체 EnumCheckIn 멤버 변수 "FILESIZE" 필요시 사용 예정 (2024.10.11 jbh)
+    //    // TODO : enum 열거형 구조체 EnumCheckIn 멤버 변수 "FILESIZE" 필요시 사용 예정 (2024.10.11 minjae)
     //    // [Description("파일_사이즈")]
     //    // FILESIZE    = 6
     //    [Description("업로드_전_파일_버전")]
@@ -299,7 +299,7 @@ namespace CobimPalette.Data.Models.CobimBase.HubBox
     //    TITLE = 7
     //}
 
-    // TODO : 추후 필요시 enum 열거형 구조체 EnumTranslateResult 참고 (2024.10.11 jbh)
+    // TODO : 추후 필요시 enum 열거형 구조체 EnumTranslateResult 참고 (2024.10.11 minjae)
     //public enum EnumTranslateResult : int
     //{
     //    [Description("code")]
@@ -310,7 +310,7 @@ namespace CobimPalette.Data.Models.CobimBase.HubBox
     //    MESSAGE = 2
     //}
 
-    // TODO : ResponseData 클래스 필요시 참고 (2024.10.30 jbh)
+    // TODO : ResponseData 클래스 필요시 참고 (2024.10.30 minjae)
     /// <summary>
     /// Http 웹서버 통신 응답 데이터
     /// </summary>
@@ -332,7 +332,7 @@ namespace CobimPalette.Data.Models.CobimBase.HubBox
     //    public string Data { get; set; }
     //}
 
-    // TODO : WebViewerPack 클래스 필요시 참고 (2024.10.14 jbh)
+    // TODO : WebViewerPack 클래스 필요시 참고 (2024.10.14 minjae)
     /// <summary>
     /// 컨테이너에 속한 파일 웹뷰어로 출력시 필수 정보 
     /// </summary>
@@ -459,7 +459,7 @@ namespace CobimPalette.Data.Models.CobimBase.HubBox
     //    #endregion Sample
     //}
 
-    // TODO : TranslatePack 클래스 필요시 참고 (2024.10.14 jbh)
+    // TODO : TranslatePack 클래스 필요시 참고 (2024.10.14 minjae)
     /// <summary>
     /// 컨테이너 체크인 + 파일 웹서버 업로드 성공시 
     /// HubBox 파일 변환 Rest API 요청시 필수 정보 
@@ -468,13 +468,13 @@ namespace CobimPalette.Data.Models.CobimBase.HubBox
     //{
     //    #region 프로퍼티
 
-    //    // TODO : 컨테이너 정보 프로퍼티 "_ContainerPack" 필요시 사용 예정 (2024.10.14 jbh)
+    //    // TODO : 컨테이너 정보 프로퍼티 "_ContainerPack" 필요시 사용 예정 (2024.10.14 minjae)
     //    /// <summary>
     //    /// 컨테이너 정보
     //    /// </summary>
     //    // private ContainerPack _ContainerPack { get; set; }
 
-    //    // TODO : 파일 정보 프로퍼티 "_FilePack" 필요시 사용 예정 (2024.10.14 jbh)
+    //    // TODO : 파일 정보 프로퍼티 "_FilePack" 필요시 사용 예정 (2024.10.14 minjae)
     //    /// <summary>
     //    /// 파일 정보
     //    /// </summary>
@@ -504,7 +504,7 @@ namespace CobimPalette.Data.Models.CobimBase.HubBox
 
     //    #region 생성자
 
-    //    // TODO : 생성자 TranslatePack(ContainerPack containerPack, FilePack filePack) 필요시 참고 (2024.10.14 jbh)
+    //    // TODO : 생성자 TranslatePack(ContainerPack containerPack, FilePack filePack) 필요시 참고 (2024.10.14 minjae)
     //    //public TranslatePack(ContainerPack containerPack, FilePack filePack)
     //    //{
     //    //    _ContainerPack = containerPack;
@@ -523,7 +523,7 @@ namespace CobimPalette.Data.Models.CobimBase.HubBox
 
     //    #region 컨테이너 정보 
 
-    //    // TODO : 컨테이너 정보 값 셋팅 메서드 "SetContainerPack" 필요시 참고 (2024.10.14 jbh)
+    //    // TODO : 컨테이너 정보 값 셋팅 메서드 "SetContainerPack" 필요시 참고 (2024.10.14 minjae)
     //    /// <summary>
     //    /// 컨테이너 정보 값 셋팅 
     //    /// </summary>
@@ -532,7 +532,7 @@ namespace CobimPalette.Data.Models.CobimBase.HubBox
     //    //    _ContainerPack = containerPack;
     //    //}
 
-    //    // TODO : 컨테이너 정보 가져오기 메서드 "GetContainerPack" 필요시 참고 (2024.10.14 jbh)
+    //    // TODO : 컨테이너 정보 가져오기 메서드 "GetContainerPack" 필요시 참고 (2024.10.14 minjae)
     //    /// <summary>
     //    /// 컨테이너 정보 가져오기
     //    /// </summary>
@@ -545,7 +545,7 @@ namespace CobimPalette.Data.Models.CobimBase.HubBox
 
     //    #region 파일 정보
 
-    //    // TODO : 파일 정보 값 셋팅 메서드 "SetFilePack" 필요시 참고 (2024.10.14 jbh)
+    //    // TODO : 파일 정보 값 셋팅 메서드 "SetFilePack" 필요시 참고 (2024.10.14 minjae)
     //    /// <summary>
     //    /// 파일 정보 값 셋팅 
     //    /// </summary>
@@ -554,7 +554,7 @@ namespace CobimPalette.Data.Models.CobimBase.HubBox
     //    //    _FilePack = filePack;
     //    //}
 
-    //    // TODO : 파일 정보 가져오기 메서드 "GetFilePack" 필요시 참고 (2024.10.14 jbh)
+    //    // TODO : 파일 정보 가져오기 메서드 "GetFilePack" 필요시 참고 (2024.10.14 minjae)
     //    /// <summary>
     //    /// 파일 정보 가져오기
     //    /// </summary>

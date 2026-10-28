@@ -18,7 +18,7 @@ namespace CobimPalette.Data.Models.CobimBase.Login
     {
         #region 프로퍼티 
 
-        // TODO : Http 서버 통신 요청 Header 프로퍼티 "RequestHeader" 필요시 사용/수정 예정 (2024.09.23 jbh)
+        // TODO : Http 서버 통신 요청 Header 프로퍼티 "RequestHeader" 필요시 사용/수정 예정 (2024.09.23 minjae)
         /// <summary>
         /// Http 서버 통신 요청 Header
         /// </summary>
@@ -185,7 +185,7 @@ namespace CobimPalette.Data.Models.CobimBase.Login
         #region 프로퍼티 
 
         // TODO : 로그인 정보 클래스 "LoginPack"안에 속하는 프로퍼티 "inputTenantId", "id", "password" 의 접근 제한자를 
-        //        private로 설정하면 오류 발생하여 접근 제한자를 public으로 수정함. (2024.03.18 jbh)
+        //        private로 설정하면 오류 발생하여 접근 제한자를 public으로 수정함. (2024.03.18 minjae)
         //        오류 발생 위치 - UserRestServer.cs -> 비동기 메서드 "PostUserLoginAsync" 
         //        -> 메서드 "JsonSerializer.Serialize" 호출하여 json 문자열(content)을 제대로 리턴 받지 못하고 오류 발생함. 
 
@@ -278,7 +278,7 @@ namespace CobimPalette.Data.Models.CobimBase.Login
 
     #region Sample
 
-    // TODO : Http 서버 통신 요청 Header 클래스 RequestHeader 필요시 참고 (2024.10.07 jbh)
+    // TODO : Http 서버 통신 요청 Header 클래스 RequestHeader 필요시 참고 (2024.10.07 minjae)
     /// <summary>
     /// Http 서버 통신 요청 Header
     /// </summary>

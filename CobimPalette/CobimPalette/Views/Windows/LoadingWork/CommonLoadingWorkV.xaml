@@ -1,11 +1,11 @@
-﻿<!--  TODO : 로그인, 체크아웃, 체크인, 다운로드 시 처리 중 화면 구현 (2024.11.08 jbh)  -->
+﻿<!--  TODO : 로그인, 체크아웃, 체크인, 다운로드 시 처리 중 화면 구현 (2024.11.08 minjae)  -->
 <!--  참고 URL - https://standard-stereotype.tistory.com/13  -->
 <!--  참고 2 URL - https://rhkdrmfh.tistory.com/135  -->
 <!--  참고 3 URL - https://www.sysnet.pe.kr/3/0/5107?pageno=0#google_vignette  -->
     
 <!--  TODO : WindowSetting.cs -> 메서드 "ShowCommonLoadingWork" 실행시 AutoCAD 응용 프로그램 메인 윈도우 핸들을 Owner로 소유자 설정하여  -->
 <!--         로그인, 체크아웃, 체크인, 다운로드 시 처리 중 화면 뷰(CommonLoadingWorkV.xaml)가 AutoCAD 응용 프로그램 화면 중앙에 출력될 수 있도록  -->
-<!--         아래 <Window> 태그 안에 WindowStartupLocation="CenterOwner" XAML 코드 추가  (2024.11.28 jbh)  -->
+<!--         아래 <Window> 태그 안에 WindowStartupLocation="CenterOwner" XAML 코드 추가  (2024.11.28 minjae)  -->
 <!--  참고 URL - https://learn.microsoft.com/en-us/dotnet/api/system.windows.windowstartuplocation?view=windowsdesktop-9.0  -->
 <Window x:Class="CobimPalette.Views.Windows.LoadingWork.CommonLoadingWorkV"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -24,7 +24,7 @@
         AllowsTransparency="True"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner">
-    <!--  TODO : 아래 주석친 뷰모델 바인딩 하는 XAML 코드 필요시 참고 (2024.10.10 jbh)  -->
+    <!--  TODO : 아래 주석친 뷰모델 바인딩 하는 XAML 코드 필요시 참고 (2024.10.10 minjae)  -->
     <!--  <Window.DataContext>
     <Binding Path="CommonLoadingWorkVM" />
 </Window.DataContext>  -->
@@ -42,7 +42,7 @@
                 <!--  TODO : Revit 응용 프로그램 자체가 아래 애니메이션 이미지 파일 "CommonProgress.gif" 화면으로 출력할 때,
                          CommonLoadingWorkV.xaml 비하인드 코드(CommonLoadingWorkV.xaml.cs)에서 생성자 호출시 
                          참조된 Nuget 패키지 파일 "AnimatedImage.Wpf.dll" 읽지 못하고 
-                         아래처럼 오류 메시지가 출력되서 주석 처리 진행 (2024.10.02 jbh)  -->
+                         아래처럼 오류 메시지가 출력되서 주석 처리 진행 (2024.10.02 minjae)  -->
                 <!--  오류 메시지 "System.Windows.Markup.XamlParseException: 'Could not load file or assembly 'AnimatedImage.Wpf, Culture=neutral, PublicKeyToken=75a6352eaa886748'. 지정된 파일을 찾을 수 없습니다.'
                                FileNotFoundException: Could not load file or assembly 'AnimatedImage.Wpf, Culture=neutral, PublicKeyToken=75a6352eaa886748'. 지정된 파일을 찾을 수 없습니다."   -->
                 <!--  참고 URL - https://stackoverflow.com/questions/62835691/filenotfoundexception-wpfanimatedgif  -->
@@ -68,7 +68,7 @@
                 <!--  TODO : 아래 이미지 태그 <Image> 영역(x:Name="CommonProgressImg") 화면 출력시  -->
                 <!--         오류 메시지 "Invalid URI: The format of the URI could not be determined" 출력됨.  -->
                 <!--         하여 해당 오류 해결하기 위해 비하인드 코드(CommonLoadingWorkV.xaml.cs) -> 메서드 "InitSetting"안에  -->
-                <!--         아래처럼 속성 "UriSource"에 할당할 이미지 파일 경로를 절대경로 사용해서 구현 (2024.10.10 jbh)  -->
+                <!--         아래처럼 속성 "UriSource"에 할당할 이미지 파일 경로를 절대경로 사용해서 구현 (2024.10.10 minjae)  -->
                 <!--         commonProgressImg.UriSource = new Uri("pack://application:,,,/CobimPalette;component/Image/CommonProgress.gif");  -->
                 <!--         commonProgressImg.UriSource = new Uri("pack://application:,,,/CobimPalette;component/Resources/CommonProgress.gif");  -->
 

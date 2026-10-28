@@ -18,7 +18,7 @@ namespace CobimPalette.Utils.String
             try
             {
                 DescriptionAttribute[] customAttributes = (DescriptionAttribute[])source.GetType().GetField(source.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), false);
-                // TODO : if 조건절에 != null 보다 빠른 is not null 연산자 사용 (2024.10.11 jbh)
+                // TODO : if 조건절에 != null 보다 빠른 is not null 연산자 사용 (2024.10.11 minjae)
                 // 참고 URL - https://husk321.tistory.com/405
                 return customAttributes is not null && customAttributes.Length != 0 ? customAttributes[0].Description : source.ToString();
             }

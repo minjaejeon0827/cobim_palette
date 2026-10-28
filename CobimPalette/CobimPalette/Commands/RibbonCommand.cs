@@ -5,7 +5,7 @@ using Application = Autodesk.AutoCAD.ApplicationServices.Application;
 
 namespace CobimPalette.Commands
 {
-    // TODO : AutoCAD2025 애드인 프로그램 "CobimPalette" 리본 버튼 Command 클래스 "RibbonCommand" 구현 (2024.11.07 jbh)
+    // TODO : AutoCAD2025 애드인 프로그램 "CobimPalette" 리본 버튼 Command 클래스 "RibbonCommand" 구현 (2024.11.07 minjae)
     // 참고 URL - https://help.autodesk.com/view/OARX/2024/ENU/?guid=GUID-01548FB4-7DE1-4025-B4C6-5E33D3530E15
     // 참고 2 URL - https://2nd-deck.tistory.com/entry/CAutoCAD-AutoCAD-%EA%B5%AC%EB%8F%99%EC%8B%9C-Ribbon-Menu-%EC%83%9D%EC%84%B1%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95
     // 참고 3 URL - https://chatgpt.com/c/672be836-7450-8011-b580-ab5674c28f08

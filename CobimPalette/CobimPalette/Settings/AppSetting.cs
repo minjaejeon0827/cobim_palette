@@ -9,7 +9,7 @@ namespace CobimPalette.Settings
 {
     // TODO : AutoCAD 애드인 프로그램의 경우 자립(Stand Alone) 방식으로 독자적으로 프로그램을 실행할 수 없고, 
     //        AutoCAD 응용 프로그램에 애드인 프로그램 dll 파일을 연동 후 AutoCAD 응용 프로그램을 선실행 해야만
-    //        AutoCAD 애드인 프로그램 또한 실행할 수 있다. (2024.09.30 jbh)
+    //        AutoCAD 애드인 프로그램 또한 실행할 수 있다. (2024.09.30 minjae)
     // 자립(Stand Alone) 방식
     // 참고 URL - https://www.inflearn.com/community/questions/24062/%EC%8A%A4%ED%83%A0%EB%93%9C-%EC%96%BC%EB%A1%A0-stand-alone-%EB%B0%A9%EC%8B%9D?srsltid=AfmBOorEtdzMSrxQfZKvOSz4jCs-JRyw3MeBsyAZZ30PhiuS5MJboVSD
     /// <summary>

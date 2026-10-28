@@ -15,7 +15,7 @@ using CobimPalette.Data.Models.CobimBase.WebView2Explorer;
 namespace CobimPalette.ViewModels.Part.Palettes.Project.WebView2CDE.WebView2Explorer
 {
     // TODO : 체크인 화면(CheckInPartV.xaml) -> 버튼 "파일열기" 클릭시 팝업화면 "열기" 출력되면서 폴더 및 파일목록이 출력되도록
-    //        체크인 뷰모델 (CheckInPartVM.cs)에서 메서드 OpenFile 몸체 안에서 -> 파일 열기 메서드 "OpenFileDialog" 사용해서 구현하기 (2024.10.11 jbh)
+    //        체크인 뷰모델 (CheckInPartVM.cs)에서 메서드 OpenFile 몸체 안에서 -> 파일 열기 메서드 "OpenFileDialog" 사용해서 구현하기 (2024.10.11 minjae)
     // 참고 URL   - https://rhkdrmfh.tistory.com/119
     // 참고 2 URL - https://afsdzvcx123.tistory.com/entry/C-%EB%AC%B8%EB%B2%95-C-%ED%8F%B4%EB%8D%94-%EC%97%B4%EA%B8%B0-%E2%80%93-Process-Start
     // 참고 3 URL - https://insurang.tistory.com/entry/WPF-C-OpenFileDialog-%ED%8C%8C%EC%9D%BC%EC%97%B4%EA%B8%B0-%EC%83%81%EC%84%B8-%ED%8C%8C%EC%9D%BC%EC%98%A4%ED%94%88-%EC%98%A4%ED%94%88%EB%8B%A4%EC%9D%B4%EC%96%BC%EB%A1%9C%EA%B7%B8-CustomPlaces-InitialDirectory-Path-%ED%8F%B4%EB%8D%94-folder-Filter-%ED%95%84%ED%84%B0-%ED%99%95%EC%9E%A5%EC%9E%90-%EC%9C%84%EC%B9%98-%EC%A7%80%EC%A0%95-ofdlg-CheckFileExists-FileOk-ShowDialog
@@ -34,7 +34,7 @@ namespace CobimPalette.ViewModels.Part.Palettes.Project.WebView2CDE.WebView2Expl
         /// </summary>
         public ICommand ExitCommand { get; set; }
 
-        // TODO : 체크인 팝업화면 제목 프로퍼티 "CheckIn_Title" 필요 없을 시 삭제 예정 (2024.10.11 jbh)
+        // TODO : 체크인 팝업화면 제목 프로퍼티 "CheckIn_Title" 필요 없을 시 삭제 예정 (2024.10.11 minjae)
         /// <summary>
         /// 체크인 팝업화면 제목
         /// </summary>
@@ -71,7 +71,7 @@ namespace CobimPalette.ViewModels.Part.Palettes.Project.WebView2CDE.WebView2Expl
 
         #region 기본 메소드 
 
-        // TODO : 메서드 "CanExecuteMethod" 필요시 수정 예정 (2024.10.10 jbh)
+        // TODO : 메서드 "CanExecuteMethod" 필요시 수정 예정 (2024.10.10 minjae)
         private bool CanExecuteMethod(object obj)
         {
             return true;

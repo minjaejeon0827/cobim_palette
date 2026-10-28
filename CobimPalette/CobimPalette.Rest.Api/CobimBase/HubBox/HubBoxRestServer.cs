@@ -37,7 +37,7 @@ namespace CobimPalette.Rest.Api.CobimBase.HubBox
             {
                 Log.Logger.Information(Logger.GetMethodPath(currentMethod) + "3. 컨테이너에 속한 특정 파일 변환 Rest API 시작");
 
-                // TODO : 2024년 10월 COBIM 시연회 종료후 Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 로그 기록 및 Rest API 메서드 종료 기능 구현 예정 (2024.08.26 jbh)
+                // TODO : 2024년 10월 COBIM 시연회 종료후 Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 로그 기록 및 Rest API 메서드 종료 기능 구현 예정 (2024.08.26 minjae)
 
                 // HttpClient 클래스 객체 "client"의 요청헤더(DefaultRequestHeaders)에 데이터 추가 하기 전 초기화
                 client.DefaultRequestHeaders.Clear();
@@ -47,19 +47,19 @@ namespace CobimPalette.Rest.Api.CobimBase.HubBox
                 client.DefaultRequestHeaders.TryAddWithoutValidation(ContainerHelper.tenant, requestHeader.GetTenant());
                 client.DefaultRequestHeaders.TryAddWithoutValidation(ContainerHelper.access, requestHeader.GetAccess());
 
-                // TODO : TranslatePack 클래스 객체 "translatePack" string 클래스 json 문자열(content) 구현 (2024.10.11 jbh)
+                // TODO : TranslatePack 클래스 객체 "translatePack" string 클래스 json 문자열(content) 구현 (2024.10.11 minjae)
                 // 참고 URL - https://learn.microsoft.com/ko-kr/dotnet/standard/serialization/system-text-json/how-to?pivots=dotnet-8-0
                 // json 문자열(하드코딩) 생성 코드 예시 -> (예) string requestData = "{\"id\":\"\",\"password\":\"\",\"inputTenantId\":\"inc-001\"}";
                 string requestData = JsonSerializer.Serialize(translatePack);
 
-                // TODO : HttpClient Post 방식으로 서버에 요청할 때, using 문 사용 (2024.08.26 jbh)
+                // TODO : HttpClient Post 방식으로 서버에 요청할 때, using 문 사용 (2024.08.26 minjae)
                 // 참고 URL - https://learn.microsoft.com/ko-kr/dotnet/fundamentals/networking/http/httpclient
                 using var jsonContent = new StringContent(
                                                 requestData,
                                                 Encoding.UTF8
                                             );
 
-                // TODO : StringBuilder 클래스 객체 requestSb 생성 -> POST - 3. 컨테이너에 속한 특정 파일 변환 Rest API URL 주소에 문자열 추가 (2024.08.26 jbh)
+                // TODO : StringBuilder 클래스 객체 requestSb 생성 -> POST - 3. 컨테이너에 속한 특정 파일 변환 Rest API URL 주소에 문자열 추가 (2024.08.26 minjae)
                 // StringBuilder vs String 비교 
                 // 참고 URL - https://afsdzvcx123.tistory.com/entry/C-%ED%99%9C%EC%9A%A9-String-StringBuilder-%EC%84%B1%EB%8A%A5-%EC%B0%A8%EC%9D%B4
 
@@ -74,7 +74,7 @@ namespace CobimPalette.Rest.Api.CobimBase.HubBox
 
                 var requestTranslateURL = requestSb.ToString();
 
-                // TODO : HttpClient Post 방식으로 서버에 요청할 때, using 문 사용 (2024.08.26 jbh)
+                // TODO : HttpClient Post 방식으로 서버에 요청할 때, using 문 사용 (2024.08.26 minjae)
                 // 참고 URL - https://learn.microsoft.com/ko-kr/dotnet/fundamentals/networking/http/httpclient   
                 using HttpResponseMessage response = await client.PostAsync(requestTranslateURL, jsonContent);
 
@@ -90,7 +90,7 @@ namespace CobimPalette.Rest.Api.CobimBase.HubBox
             }
             catch (Exception ex)
             {
-                // TODO : 2024년 10월 COBIM 시연회 종료후 Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 로그 기록 및 Rest API 메서드 종료 기능 구현 예정 (2024.10.11 jbh)
+                // TODO : 2024년 10월 COBIM 시연회 종료후 Http 통신 Get 방식 작업 시 서버로 부터 결과값 리턴되지 않고 시간이 길어지면 Time Out 처리 되면서 오류 로그 기록 및 Rest API 메서드 종료 기능 구현 예정 (2024.10.11 minjae)
                 Log.Logger.Error(Logger.GetMethodPath(currentMethod) + Logger.errorMessage + ex.Message);
                 throw;   // 오류 발생시 상위 호출자 예외처리 전달 throw
             }

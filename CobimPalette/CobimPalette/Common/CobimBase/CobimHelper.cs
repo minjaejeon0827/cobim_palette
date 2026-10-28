@@ -131,7 +131,7 @@ namespace CobimPalette.Common.CobimBase
         /// </summary>
         public const string TypeOfExplorer = "ExplorerV";
 
-        // TODO : 추후 Guid 스터디 진행하기 (2024.08.20 jbh)
+        // TODO : 추후 Guid 스터디 진행하기 (2024.08.20 minjae)
         // 참고 URL - https://velog.io/@ci___der/GUID%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C
         /// <summary>
         /// Palette - 탐색기 화면 뷰 객체 Guid
@@ -178,7 +178,7 @@ namespace CobimPalette.Common.CobimBase
         /// </summary>
         public const string TypeOfWebView2Explorer = "WebView2ExplorerV";
 
-        // TODO : 추후 Guid 스터디 진행하기 (2024.09.19 jbh)
+        // TODO : 추후 Guid 스터디 진행하기 (2024.09.19 minjae)
         // 참고 URL - https://velog.io/@ci___der/GUID%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C
         /// <summary>
         /// Palette - WebView2 탐색기 화면 뷰 객체 Guid
@@ -270,7 +270,7 @@ namespace CobimPalette.Common.CobimBase
         /// </summary>
         public const string TypeOfHubBox = "HubBoxV";
 
-        // TODO : 추후 Guid 스터디 진행하기 (2024.09.19 jbh)
+        // TODO : 추후 Guid 스터디 진행하기 (2024.09.19 minjae)
         // 참고 URL - https://velog.io/@ci___der/GUID%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C
         /// <summary>
         /// Palette - HubBox 화면 뷰 객체 Guid

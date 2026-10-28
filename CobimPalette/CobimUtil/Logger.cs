@@ -6,7 +6,7 @@ namespace CobimUtil
     {
         #region 프로퍼티
 
-        // TODO : 로그 타입 유형 문자열 (const string) 객체 다른 유형 필요시 추가 예정 (2024.09.25 jbh)
+        // TODO : 로그 타입 유형 문자열 (const string) 객체 다른 유형 필요시 추가 예정 (2024.09.25 minjae)
         public const string debugMessage = "디버그 - ";
 
         public const string errorMessage = "오류 - ";
@@ -17,7 +17,7 @@ namespace CobimUtil
 
         #region 생성자
 
-        // TODO : 필요시 생성자 Logger 구현 예정 (2024.09.25 jbh)
+        // TODO : 필요시 생성자 Logger 구현 예정 (2024.09.25 minjae)
         public Logger(string loggerName)
         {
 

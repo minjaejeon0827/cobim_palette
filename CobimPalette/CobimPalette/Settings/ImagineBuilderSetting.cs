@@ -18,7 +18,7 @@ namespace CobimPalette.Settings
 
         #region 생성자
 
-        // TODO : 필요시 생성자 "ImagineBuilderSetting" 구현 예정 (2024.08.20 jbh)
+        // TODO : 필요시 생성자 "ImagineBuilderSetting" 구현 예정 (2024.08.20 minjae)
         public ImagineBuilderSetting()
         {
             // _HomePage = null;
@@ -39,16 +39,16 @@ namespace CobimPalette.Settings
             {
                 Log.Information(Logger.GetMethodPath(currentMethod) + "(주)상상진화 기업 홈페이지 연결 시작");
 
-                // TODO : (주)상상진화 기업 홈페이지 팝업 화면 출력 구현 (2024.08.20 jbh)
+                // TODO : (주)상상진화 기업 홈페이지 팝업 화면 출력 구현 (2024.08.20 minjae)
                 // 참고 URL   - https://yongtech.tistory.com/58
                 // 참고 2 URL - https://findfun.tistory.com/485
 
-                // TODO : (주)상상진화 기업 홈페이지 구글 크롬(chrome.exe)으로 출력 구현 (2024.08.20 jbh)
+                // TODO : (주)상상진화 기업 홈페이지 구글 크롬(chrome.exe)으로 출력 구현 (2024.08.20 minjae)
                 // 참고 URL - https://www.codeproject.com/Questions/5286855/How-do-I-open-Google-chrome-in-Csharp
                 // Process.Start("chrome.exe", pURL);
                 // Process.Start("firefox.exe", pURL);
 
-                // TODO : .net FrameWork 말고 .net Core 6.0 이상 버전에서  (주)상상진화 기업 홈페이지 출력 오류시 아래 처럼 구현 (2024.08.20 jbh)
+                // TODO : .net FrameWork 말고 .net Core 6.0 이상 버전에서  (주)상상진화 기업 홈페이지 출력 오류시 아래 처럼 구현 (2024.08.20 minjae)
                 // 참고 URL - https://endev.tistory.com/m/237
                 Process.Start(new ProcessStartInfo(pImagineBuilderURL) { UseShellExecute = true });
 

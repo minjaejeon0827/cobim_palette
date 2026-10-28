@@ -6,7 +6,7 @@ using TextBox = System.Windows.Controls.TextBox;
 
 namespace CobimPalette.Utils.Text
 {
-    // TODO : Attached Property 기능 "TextBoxHelper.cs" 구현 (2024.10.10 jbh)
+    // TODO : Attached Property 기능 "TextBoxHelper.cs" 구현 (2024.10.10 minjae)
     // 유튜브 참고 URL - https://youtu.be/An7kwDYt3OQ
     public class TextBoxHelper
     {
@@ -18,7 +18,7 @@ namespace CobimPalette.Utils.Text
         private static void OnUseOnPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var textBox = d as TextBox;
-            // TODO : if 조건절에 == null 보다 빠른 is null 연산자 사용 (2024.10.10 jbh)
+            // TODO : if 조건절에 == null 보다 빠른 is null 연산자 사용 (2024.10.10 minjae)
             // 참고 URL - https://husk321.tistory.com/405
             if (textBox is null) return;
 

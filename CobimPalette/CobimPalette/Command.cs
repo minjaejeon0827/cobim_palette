@@ -10,7 +10,7 @@ using CobimPalette.Settings;
 
 using Autodesk.AutoCAD.Runtime;
 
-// TODO : AutoCAD API 개발 커뮤니티 사이트 필요시 참고 (2024.11.08 jbh)
+// TODO : AutoCAD API 개발 커뮤니티 사이트 필요시 참고 (2024.11.08 minjae)
 // 참고 URL - https://forums.autodesk.com/t5/net/bd-p/152
 
 // This line is not mandatory, but improves loading performances
@@ -96,7 +96,7 @@ namespace CobimPalette
 
         #region CmdHubBox
 
-        // TODO : 아래 주석친 코드 필요시 참고 (2024.12.04 jbh)
+        // TODO : 아래 주석친 코드 필요시 참고 (2024.12.04 minjae)
         /// <summary>
         /// HubBox Command 
         /// </summary>

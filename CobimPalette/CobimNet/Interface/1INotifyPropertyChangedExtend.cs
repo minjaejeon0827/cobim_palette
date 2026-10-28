@@ -9,7 +9,7 @@ namespace CobimNet.Interface
         [JsonIgnore]
         bool EnablePropertyChanged { get; set; }
 
-        // TODO : 추후 필요시 프로퍼티 "IsPropertyChanged" 사용 예정 (2024.08.14 jbh)
+        // TODO : 추후 필요시 프로퍼티 "IsPropertyChanged" 사용 예정 (2024.08.14 minjae)
         // [JsonIgnore]
         // bool IsPropertyChanged { get; set; }
 

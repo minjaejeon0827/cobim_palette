@@ -14,7 +14,7 @@
         WindowStyle="None"
         AllowsTransparency="True"
         ResizeMode="CanResize">
-    <!--  TODO : 아래 주석친 뷰모델 바인딩 하는 XAML 코드 필요시 참고 (2024.10.10 jbh)  -->
+    <!--  TODO : 아래 주석친 뷰모델 바인딩 하는 XAML 코드 필요시 참고 (2024.10.10 minjae)  -->
     <!--  <Window.DataContext>
     <Binding Path="CheckInPartVM" />
 </Window.DataContext>  -->
@@ -26,15 +26,15 @@
         <SolidColorBrush x:Key="App.Brush.Themes.Common.Gray" Color="Gray"         />
         <SolidColorBrush x:Key="App.Brush.Themes.Winter.Black.20" Color="#2E333A"  />
 
-        <!--  TODO : ButtonBase 스타일 정의 필요시 구현 예정 (2024.10.10 jbh)  -->
+        <!--  TODO : ButtonBase 스타일 정의 필요시 구현 예정 (2024.10.10 minjae)  -->
         <Style x:Key="App.Button" TargetType="{x:Type ButtonBase}">
 
         </Style>
 
-        <!--  TODO : CobimDockableDialogs 응용 프로그램 체크인 팝업 화면 상단 타이틀 바에 사용할 버튼 스타일 구현 (2024.10.10 jbh)  -->
+        <!--  TODO : CobimDockableDialogs 응용 프로그램 체크인 팝업 화면 상단 타이틀 바에 사용할 버튼 스타일 구현 (2024.10.10 minjae)  -->
         <!--  유튜브 참고 URL - https://youtu.be/Q6VxSPlkcCg?si=dkC2ujAX3reUjQPk  -->
         <!--  참고 URL - https://gigong.tistory.com/99  -->
-        <!--  TODO : 스타일 TargetType "ButtonBase" 필요시 구현 예정 (2024.10.10 jbh)  -->
+        <!--  TODO : 스타일 TargetType "ButtonBase" 필요시 구현 예정 (2024.10.10 minjae)  -->
         <Style x:Key="App.Button.CheckIn" BasedOn="{StaticResource App.Button}" TargetType="{x:Type Button}">
             <Setter Property="Padding" Value="0"/>
             <Setter Property="Width" Value="35"/>
@@ -42,7 +42,7 @@
             <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="Background" Value="{DynamicResource App.Brush.Themes.Common.Transparent}"/>
-            <!--  TODO : 타이틀 바에 속한 버튼 ("최소화", "최대화", "닫기")이 정상적으로 동작하도록 프로퍼티  Property="WindowChrome.IsHitTestVisibleInChrome" 스타일 추가 (2023.11.13 jbh)  -->
+            <!--  TODO : 타이틀 바에 속한 버튼 ("최소화", "최대화", "닫기")이 정상적으로 동작하도록 프로퍼티  Property="WindowChrome.IsHitTestVisibleInChrome" 스타일 추가 (2023.11.13 minjae)  -->
             <!--  참고 URL - https://stackoverflow.com/questions/41905412/windowchrome-cant-click-buttons-in-titlebar  -->
             <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
             <Setter Property="Template">
@@ -116,16 +116,16 @@
                        FontSize="20"
                        VerticalAlignment="Center"/>
 
-                <!--  TODO : <TextBox> 영역에 PlaceHolder(Watermark) "Enter Comment (optional)..." 구현 (2023.12.01 jbh)  -->
+                <!--  TODO : <TextBox> 영역에 PlaceHolder(Watermark) "Enter Comment (optional)..." 구현 (2023.12.01 minjae)  -->
                 <!--  참고 URL - https://blissfuljoon.tistory.com/374  -->
                 <!--  참고 2 URL - https://kjun.kr/1127  -->
-                <!--  TODO : <TextBox>에 적힌 텍스트 <TextBox> 영역 중앙 정렬 구현 VerticalContentAlignment="Center" (2023.12.01 jbh)  -->
+                <!--  TODO : <TextBox>에 적힌 텍스트 <TextBox> 영역 중앙 정렬 구현 VerticalContentAlignment="Center" (2023.12.01 minjae)  -->
                 <!--  참고 URL - https://drbeeeye.tistory.com/9  -->
                 <Border Margin="10,0,0,0"
                     BorderBrush="{StaticResource App.Brush.Themes.Winter.Black.20}"
                     BorderThickness="2">
                     <Grid>
-                        <!--  TODO : 체크인 Comment 입력할 수 있는 <TextBox> 영역에 Text 문자열을 여러 줄 작성할 수 있도록 멀티라인 구현 (2023.12.04 jbh)  -->
+                        <!--  TODO : 체크인 Comment 입력할 수 있는 <TextBox> 영역에 Text 문자열을 여러 줄 작성할 수 있도록 멀티라인 구현 (2023.12.04 minjae)  -->
                         <!--  참고 URL - https://learn.microsoft.com/ko-kr/dotnet/desktop/wpf/controls/how-to-create-a-multiline-textbox-control?view=netframeworkdesktop-4.8  -->
                         <!--  참고 2 URL - https://m.blog.naver.com/lhs860226/142423158  -->
                         <!--  참고 3 URL - https://salmonworld.tistory.com/159?category=898737  -->
@@ -189,7 +189,7 @@
             <!--  기존 체크아웃한 파일 말고 새로운 파일도 다중 파일 업로드 기능 필요  -->
             <!--  컨테이너 1개 -> 파일 A, B, C ... (1 : N 관계) 로 체크인 + 다중 파일 업로드 할 수 있게끔  -->
             <!--  인재 INC와 소통 진행 필요함. (추후 Rest API 새로 구현 요청)  -->
-            <!--  TODO : WPF OpenFileDialog 사용해서 테스트용 팝업 "열기" 화면 출력 및 컨테이너 체크인 + 업로드 할 파일 열기 구현 (2023.12.04 jbh)  -->
+            <!--  TODO : WPF OpenFileDialog 사용해서 테스트용 팝업 "열기" 화면 출력 및 컨테이너 체크인 + 업로드 할 파일 열기 구현 (2023.12.04 minjae)  -->
             <!--  유튜브 참고 URL  -->
             <!--  https://youtu.be/Ks9bzPSx7Vs?si=GkwGbWPvbSYOYOwC  -->
 

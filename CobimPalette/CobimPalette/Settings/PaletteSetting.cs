@@ -15,7 +15,7 @@ using Autodesk.AutoCAD.Windows;
 
 namespace CobimPalette.Settings
 {
-    // TODO : Palette 기본 설정 클래스 PaletteSetting 추후 구현 예정 (2024.11.08 jbh)
+    // TODO : Palette 기본 설정 클래스 PaletteSetting 추후 구현 예정 (2024.11.08 minjae)
     /// <summary>
     /// Palette 기본 설정 
     /// </summary>
@@ -47,7 +47,7 @@ namespace CobimPalette.Settings
 
         #region 생성자
 
-        // TODO : 필요시 생성자 "PaletteSetting" 구현 예정 (2024.11.11 jbh)
+        // TODO : 필요시 생성자 "PaletteSetting" 구현 예정 (2024.11.11 minjae)
         public PaletteSetting() 
         { 
         
@@ -138,7 +138,7 @@ namespace CobimPalette.Settings
                         case CobimHelper.HubBoxTitle:   // Palette - HubBox 화면 뷰인 경우 
                             _PaletteSetManager.RegisterPalette(paletteGuId, paletteTitle, _HubBoxV, paletteDockSides);
                             break;
-                        // TODO : 아래 주석친 case 레이블(case CobimHelper.TypeOfExplorer:) 필요시 사용 예정 (2024.09.25 jbh)
+                        // TODO : 아래 주석친 case 레이블(case CobimHelper.TypeOfExplorer:) 필요시 사용 예정 (2024.09.25 minjae)
                         // case CobimHelper.ExpTitle:
                         //     _PaletteSetManager.RegisterPalette(dockablePaneId, RibbonHelper.PanName_CDE, _ExplorerV, dockablePaneState);
                         //     _PaletteSetManager.RegisterPalette(dockablePaneId, paletteTitle, _ExplorerV, dockablePaneState);

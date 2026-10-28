@@ -16,67 +16,67 @@ using Application = Autodesk.AutoCAD.ApplicationServices.Application;
 using Autodesk.AutoCAD.ApplicationServices;
 using CobimPalette.Settings;
 
-// TODO : AutoCAD API °³¹ß Ä¿¹Â´ÏÆ¼ »çÀÌÆ® ÇÊ¿ä½Ã Âü°í (2024.11.08 jbh)
-// Âü°í URL - https://forums.autodesk.com/t5/net/bd-p/152
+// TODO : AutoCAD API ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½Â´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ê¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (2024.11.08 minjae)
+// ï¿½ï¿½ï¿½ï¿½ URL - https://forums.autodesk.com/t5/net/bd-p/152
 
 // This line is not mandatory, but improves loading performances
-// ÇÊ¼ö ¾Æ´ÏÁö¸¸ ·Îµù ¼º´É Çâ»ó ½ÃÄÑÁÖ´Â ±â´É
+// ï¿½Ê¼ï¿½ ï¿½Æ´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
 [assembly: ExtensionApplication(typeof(CobimPalette.App))]
 
 namespace CobimPalette
 {
-    // TODO : ÇÊ¿ä½Ã ¸Þ¼­µå "Initialize" ÃßÈÄ ±¸Çö ¿¹Á¤ (2024.11.07 jbh)
+    // TODO : ï¿½Ê¿ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ "Initialize" ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (2024.11.07 minjae)
     /// <summary>
-    /// Revit ¾ÖµåÀÎ ÇÁ·Î±×·¥ Application.cs¿Í ºñ½ÁÇÑ ±â´É 
-    /// ÇØ´ç App Å¬·¡½º´Â AutoCAD ÀÀ¿ë ÇÁ·Î±×·¥¿¡¼­ 
-    /// ÇÑ ¹ø ÀÎ½ºÅÏ½ºÈ­µÇ°í ¼¼¼Ç ±â°£ µ¿¾È È°¼º »óÅÂ·Î À¯Áö
-    /// ÇÑ ¹ø ÃÊ±âÈ­¸¦ ¼öÇàÇÏÁö ¾ÊÀ¸¸é ÇØ´ç App Å¬·¡½º Á¦°Å ÇÊ¼ö 
+    /// Revit ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ Application.csï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 
+    /// ï¿½Ø´ï¿½ App Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ AutoCAD ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ 
+    /// ï¿½ï¿½ ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½È­ï¿½Ç°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½â°£ ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½
+    /// ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ App Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¼ï¿½ 
     /// </summary>
     public class App : IExtensionApplication
     {
-        #region ±âº» ¸Þ¼Òµå 
+        #region ï¿½âº» ï¿½Þ¼Òµï¿½ 
 
         /// <summary>
-        /// ¾ÖµåÀÎ ÇÁ·Î±×·¥(CobimPalette) ½ÃÀÛ(ÃÊ±âÈ­)
-        /// Revit ¾ÖµåÀÎ ÇÁ·Î±×·¥ ¸Þ¼­µå OnStartup°ú ºñ½ÁÇÑ ±â´É 
+        /// ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½(CobimPalette) ï¿½ï¿½ï¿½ï¿½(ï¿½Ê±ï¿½È­)
+        /// Revit ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ OnStartupï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 
         /// </summary>
         public void Initialize()
         {
-            // TODO : AppDomain.CurrentDomain ¼Ó¼º »ç¿ëÇÏ¿© ÇöÀç ½ÇÇà ÁßÀÎ ÁÖ ÀÀ¿ë ÇÁ·Î±×·¥(AutoCAD 2025 ¹öÀü) µµ¸ÞÀÎ(¾î¼Àºí¸® + ¸ÞÀÎ ½º·¹µå) °¡Á®¿À±â ±¸Çö (2024.10.10 jbh)
-            // Âü°í URL - https://learn.microsoft.com/en-us/dotnet/api/system.appdomain.currentdomain?view=net-8.0
-            // Âü°í 2 URL - https://developer-kus.tistory.com/11
-            AppDomain currentDomain = AppDomain.CurrentDomain;   // ÇöÀç ½ÇÇà ÁßÀÎ ÁÖ ÀÀ¿ë ÇÁ·Î±×·¥(AutoCAD 2025 ¹öÀü) µµ¸ÞÀÎ(¾î¼Àºí¸® + ½º·¹µå) °¡Á®¿À±â
+            // TODO : AppDomain.CurrentDomain ï¿½Ó¼ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½(AutoCAD 2025 ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (2024.10.10 minjae)
+            // ï¿½ï¿½ï¿½ï¿½ URL - https://learn.microsoft.com/en-us/dotnet/api/system.appdomain.currentdomain?view=net-8.0
+            // ï¿½ï¿½ï¿½ï¿½ 2 URL - https://developer-kus.tistory.com/11
+            AppDomain currentDomain = AppDomain.CurrentDomain;   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½(AutoCAD 2025 ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-            var currentMethod = MethodBase.GetCurrentMethod();   // ·Î±× ±â·Ï½Ã ÇöÀç ½ÇÇà ÁßÀÎ ¸Þ¼­µå À§Ä¡ ±â·Ï
+            var currentMethod = MethodBase.GetCurrentMethod();   // ï¿½Î±ï¿½ ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
 
             try
             {
-                // TODO : ¿À·ù ¸Þ½ÃÁö "System.Windows.Markup.XamlParseException: 'Could not load file or assembly 'AnimatedImage.Wpf, Culture=neutral, PublicKeyToken=75a6352eaa886748'. ÁöÁ¤µÈ ÆÄÀÏÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù.'
-                //                       FileNotFoundException: Could not load file or assembly 'AnimatedImage.Wpf, Culture=neutral, PublicKeyToken=75a6352eaa886748'.ÁöÁ¤µÈ ÆÄÀÏÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù."  
-                //        ¿À·ù ¿øÀÎ ÆÄ¾Ç °á°ú
-                //        AutoCAD 2024 ¹öÀü ±îÁö´Â ÀÌ ¹®Á¦°¡ ±×·¸°Ô ¹ß»ýÇÑ °ÍÀ» º» ÀûÀÌ ¾ø´Âµ¥,
-                //        AutoCAD 2025 ¹öÀü ºÎÅÍ´Â DotNet Core·Î ¹Ù²ï ¿©ÆÄÀÎÁö,
-                //        ÀÌ·±Àú·± »óÈ²¿¡¼­ À§¿Í °°Àº ¿À·ù ¸Þ½ÃÁö°¡ ²Ï ¹ß»ýÇÏ´Â °ÍÀ¸·Î È®ÀÎµÊ.
-                //        ÇØ´ç ¿À·ù ¸Þ¼¼Áö°¡ Ãâ·ÂµÇ´Â ÁÖ¿ä ¿øÀÎÀº 3rdparty dll(CobimPalette.dll) ÆÄÀÏÀ»
-                //        ÁÖ ÀÀ¿ë ÇÁ·Î±×·¥(acad.exe) ½ÇÇà½Ã ¹Ù·Î ÀÐÁö ¾Ê°í,
-                //        ÁÖ ÀÀ¿ë ÇÁ·Î±×·¥(acad.exe) ½ÇÇà ÈÄ µµÁß¿¡ 3rdparty dll(CobimPalette.dll) ÆÄÀÏÀ» ÀÐ°Ô µÇ´Â »óÈ²¿¡¼­´Â
-                //        ÁÖ ÀÀ¿ë ÇÁ·Î±×·¥(acad.exe) ÀÚÃ¼¿¡ °ü·ÃÇÑ Æú´õ¸¸ °Ë»öÇÏ°Ô µÇ´Â »óÈ²ÀÌ ¹ß»ýÇÏ±â ¶§¹®ÀÌ´Ù.  
-                // ¿À·ù °³¼± ¹æ¹ý Âü°í URL -https://stackoverflow.com/questions/1373100/how-to-add-folder-to-assembly-search-path-at-runtime-in-net  
+                // TODO : ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ "System.Windows.Markup.XamlParseException: 'Could not load file or assembly 'AnimatedImage.Wpf, Culture=neutral, PublicKeyToken=75a6352eaa886748'. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.'
+                //                       FileNotFoundException: Could not load file or assembly 'AnimatedImage.Wpf, Culture=neutral, PublicKeyToken=75a6352eaa886748'.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."  
+                //        ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¾ï¿½ ï¿½ï¿½ï¿½
+                //        AutoCAD 2024 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Âµï¿½,
+                //        AutoCAD 2025 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í´ï¿½ DotNet Coreï¿½ï¿½ ï¿½Ù²ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,
+                //        ï¿½Ì·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½Îµï¿½.
+                //        ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ÂµÇ´ï¿½ ï¿½Ö¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 3rdparty dll(CobimPalette.dll) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                //        ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½(acad.exe) ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½,
+                //        ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½(acad.exe) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ß¿ï¿½ 3rdparty dll(CobimPalette.dll) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð°ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½È²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                //        ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½(acad.exe) ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½Ï°ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½È²ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.  
+                // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ URL -https://stackoverflow.com/questions/1373100/how-to-add-folder-to-assembly-search-path-at-runtime-in-net  
                 currentDomain.AssemblyResolve += new ResolveEventHandler(LoadFromCobimPalette);
 
-                Logger.ConfigureLogger(CobimHelper.LogFileCountLimit, CobimHelper.AssemblyName, CobimHelper.LogDirectoryPath);   // Serilog ·Î±× ÃÊ±â ¼³Á¤ 
+                Logger.ConfigureLogger(CobimHelper.LogFileCountLimit, CobimHelper.AssemblyName, CobimHelper.LogDirectoryPath);   // Serilog ï¿½Î±ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 
-                Log.Information(Logger.GetMethodPath(currentMethod) + "Serilog ·Î±× ÃÊ±â ¼³Á¤ ¿Ï·á");
+                Log.Information(Logger.GetMethodPath(currentMethod) + "Serilog ï¿½Î±ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½");
 
-                ConfigureAppSetting();   // ¾ÖµåÀÎ ÇÁ·Î±×·¥ CobimPalette ±âº» ¼³Á¤¿¡ ÇÊ¿äÇÑ °´Ã¼ ±¸¼º(»ý¼º ¶Ç´Â ÃÊ±âÈ­)  
+                ConfigureAppSetting();   // ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ CobimPalette ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½Ê±ï¿½È­)  
 
-                Log.Information(Logger.GetMethodPath(currentMethod) + $"{CobimHelper.AssemblyName} ÇÁ·Î±×·¥ ½ÃÀÛ");
+                Log.Information(Logger.GetMethodPath(currentMethod) + $"{CobimHelper.AssemblyName} ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 
-                // static Å¬·¡½º ComponentManager¿¡ ¼ÓÇÑ ¸®º» ¾ÆÀÌÅÛÀÌ Á¸ÀçÇÏÁö ¾Ê´Â °æ¿ì 
+                // static Å¬ï¿½ï¿½ï¿½ï¿½ ComponentManagerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ 
                 if(ComponentManager.Ribbon is null) 
-                    ComponentManager.ItemInitialized += ComponentManager_ItemInitialized;   // ÀÌº¥Æ® ¸Þ¼­µå ComponentManager_ItemInitialized °¡ÀÔ
-                // static Å¬·¡½º ComponentManager¿¡ ¼ÓÇÑ ¸®º» ¾ÆÀÌÅÛÀÌ Á¸ÀçÇÏ´Â °æ¿ì 
-                else Ribbon.CreateRibbonControl(ComponentManager.Ribbon);   // ¸®º» ¸Þ´º µî·Ï
+                    ComponentManager.ItemInitialized += ComponentManager_ItemInitialized;   // ï¿½Ìºï¿½Æ® ï¿½Þ¼ï¿½ï¿½ï¿½ ComponentManager_ItemInitialized ï¿½ï¿½ï¿½ï¿½
+                // static Å¬ï¿½ï¿½ï¿½ï¿½ ComponentManagerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ 
+                else Ribbon.CreateRibbonControl(ComponentManager.Ribbon);   // ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½
 
 
                 Application.DocumentManager.DocumentCreated += App_DocumentCreated;
@@ -92,7 +92,7 @@ namespace CobimPalette
 
 
         /// <summary>
-        /// ¾ÖµåÀÎ ÇÁ·Î±×·¥(CobimPalette) Á¾·á(Á¤¸®)
+        /// ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½(CobimPalette) ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)
         /// </summary>
         public void Terminate()
         {
@@ -101,46 +101,46 @@ namespace CobimPalette
             Application.DocumentManager.DocumentBecameCurrent -= App_DocumentBecameCurrent;
         }
 
-        #endregion ±âº» ¸Þ¼Òµå
+        #endregion ï¿½âº» ï¿½Þ¼Òµï¿½
 
         #region ConfigureAppSetting
 
         /// <summary>
-        /// ¾ÖµåÀÎ ÇÁ·Î±×·¥ CobimPalette ±âº» ¼³Á¤¿¡ ÇÊ¿äÇÑ °´Ã¼ ±¸¼º(»ý¼º ¶Ç´Â ÃÊ±âÈ­)
+        /// ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ CobimPalette ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½Ê±ï¿½È­)
         /// </summary>
         private void ConfigureAppSetting()
         {
-            var currentMethod = MethodBase.GetCurrentMethod();   // ·Î±× ±â·Ï½Ã ÇöÀç ½ÇÇà ÁßÀÎ ¸Þ¼­µå À§Ä¡ ±â·Ï
+            var currentMethod = MethodBase.GetCurrentMethod();   // ï¿½Î±ï¿½ ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
 
             try
             {
                 AppSetting.Default.DirectoryBase.SetCommonDirectoryPath(CobimHelper.CommonDirectoryPath);
 
-                // TODO : ¸Þ¼­µå "AppSetting.Default.DirectoryBase.SetParentDirectoryPath" È£Ãâ -> ¸Þ¼­µå Directory.GetParent È£Ãâ½Ã º¯¼ö parentDirectoryPath¿¡ ´ã±ä ÆÄÀÏÀÇ ·çÆ®(ºÎ¸ð) Æú´õ°¡ ¾ø´Â °æ¿ì ¿À·ù°¡ ¹ß»ýÇÔ.
-                //        ÇÏ¿© ÇØ´ç ¸Þ¼­µå "AppSetting.Default.DirectoryBase.SetParentDirectoryPath" È£Ãâ¹® ÁÖ¼® Ã³¸® ¿Ï·á (2024.10.11 jbh)
-                // AppSetting.Default.DirectoryBase.SetParentDirectoryPath(CobimHelper.AssemblyFilePath);   // dll ÆÄÀÏ(CobimPalette.dll)ÀÌ ¼ÓÇÑ ºÎ¸ð Æú´õ °æ·Î °¡Á®¿À±â 
+                // TODO : ï¿½Þ¼ï¿½ï¿½ï¿½ "AppSetting.Default.DirectoryBase.SetParentDirectoryPath" È£ï¿½ï¿½ -> ï¿½Þ¼ï¿½ï¿½ï¿½ Directory.GetParent È£ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ parentDirectoryPathï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®(ï¿½Î¸ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½.
+                //        ï¿½Ï¿ï¿½ ï¿½Ø´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ "AppSetting.Default.DirectoryBase.SetParentDirectoryPath" È£ï¿½â¹® ï¿½Ö¼ï¿½ Ã³ï¿½ï¿½ ï¿½Ï·ï¿½ (2024.10.11 minjae)
+                // AppSetting.Default.DirectoryBase.SetParentDirectoryPath(CobimHelper.AssemblyFilePath);   // dll ï¿½ï¿½ï¿½ï¿½(CobimPalette.dll)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
                 AppSetting.Default.DirectoryBase.SetLogDirectoryPath(CobimHelper.LogDirectoryPath);
 
-                AppSetting.Default.HttpClientBase.CreateHttpClient();   // HttpClient ½Ì±ÛÅæ °´Ã¼ »ý¼º
+                AppSetting.Default.HttpClientBase.CreateHttpClient();   // HttpClient ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
 
-                // TODO : ÇÊ¿ä½Ã AutoCAD ¾ÖµåÀÎ ÇÁ·Î±×·¥(CobimPalette) ·Î±×ÀÎ È­¸é Ãâ·Â ¸Þ¼­µå OpenLogin() ±¸Çö ¿¹Á¤ (2024.08.20 jbh)
+                // TODO : ï¿½Ê¿ï¿½ï¿½ AutoCAD ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½(CobimPalette) ï¿½Î±ï¿½ï¿½ï¿½ È­ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ OpenLogin() ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (2024.08.20 minjae)
                 // AppSetting.Default.LoginBase.OpenLogin();
 
-                AppSetting.Default.WindowBase.CreateWindow();   // Window È­¸é °´Ã¼ »ý¼º
+                AppSetting.Default.WindowBase.CreateWindow();   // Window È­ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
 
-                AppSetting.Default.PaletteBase.CreatePalette();   // Palette È­¸é ½Ì±ÛÅæ °´Ã¼ »ý¼º
+                AppSetting.Default.PaletteBase.CreatePalette();   // Palette È­ï¿½ï¿½ ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
 
-                // Palette (WebView2 Å½»ö±â È­¸é) µî·Ï
+                // Palette (WebView2 Å½ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½) ï¿½ï¿½ï¿½
                 AppSetting.Default.PaletteBase.RegisterPalette(CobimHelper.WebView2ExplorerTitle, CobimHelper.WebView2ExplorerGuId);
 
-                // TODO : ÇÊ¿ä½Ã Palette (HubBox È­¸é) µî·Ï ¸Þ¼­µå "RegisterPalette" »ç¿ë ¿¹Á¤ (2024.12.04 jbh)
-                // Palette (HubBox È­¸é) µî·Ï 
+                // TODO : ï¿½Ê¿ï¿½ï¿½ Palette (HubBox È­ï¿½ï¿½) ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ "RegisterPalette" ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (2024.12.04 minjae)
+                // Palette (HubBox È­ï¿½ï¿½) ï¿½ï¿½ï¿½ 
                 // AppSetting.Default.PaletteBase.RegisterPalette(CobimHelper.HubBoxTitle, CobimHelper.HubBoxGuId);
             }
             catch (Exception ex)
             {
                 Log.Error(Logger.GetMethodPath(currentMethod) + Logger.errorMessage + ex.Message);
-                throw;   // ¿À·ù ¹ß»ý½Ã »óÀ§ È£ÃâÀÚ ¿¹¿ÜÃ³¸® Àü´Þ throw
+                throw;   // ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ throw
             }
         }
 
@@ -149,20 +149,20 @@ namespace CobimPalette
         #region App_DocumentCreated
 
         /// <summary>
-        /// AutoCAD ÀÀ¿ë ÇÁ·Î±×·¥¿¡¼­ »ç¿ëÀÚ°¡ »õ·Î »ý¼ºÇÑ ¹®¼­(Document)¸¦ ¿­°í ³­ Á÷ÈÄ ½ÇÇàµÇ´Â ÀÌº¥Æ® ¸Þ¼Òµå
-        /// »õ·Î »ý¼º µÈ ¹®¼­(Document) Á¤º¸ °¡Á®¿À±â °¡´É 
+        /// AutoCAD ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(Document)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½Ìºï¿½Æ® ï¿½Þ¼Òµï¿½
+        /// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(Document) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
         /// </summary>
         private void App_DocumentCreated(object sender, DocumentCollectionEventArgs e)
         {
-            var currentMethod = MethodBase.GetCurrentMethod();   // ·Î±× ±â·Ï½Ã ÇöÀç ½ÇÇà ÁßÀÎ ¸Þ¼­µå À§Ä¡ ±â·Ï
+            var currentMethod = MethodBase.GetCurrentMethod();   // ï¿½Î±ï¿½ ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
 
             try
             {
-                // Document createdDoc = e.Document;   // »õ·Î »ý¼º µÈ ¹®¼­(Document) Á¤º¸ °¡Á®¿À±â
+                // Document createdDoc = e.Document;   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(Document) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-                // Palette - WebView2 Å½»ö±â È­¸é Ãâ·Â
+                // Palette - WebView2 Å½ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ ï¿½ï¿½ï¿½
                 AppSetting.Default.PaletteBase.ShowPalette(CobimHelper.WebView2ExplorerTitle, CobimHelper.WebView2ExplorerGuId);
-                // Palette - HubBox È­¸é Ãâ·Â
+                // Palette - HubBox È­ï¿½ï¿½ ï¿½ï¿½ï¿½
                 // AppSetting.Default.PaletteBase.ShowPalette(CobimHelper.HubBoxTitle, CobimHelper.HubBoxGuId);
             }
             catch(Exception ex)
@@ -177,20 +177,20 @@ namespace CobimPalette
         #region App_DocumentActivated
 
         /// <summary>
-        /// AutoCAD ÀÀ¿ë ÇÁ·Î±×·¥¿¡¼­ »ç¿ëÀÚ°¡ ±âÁ¸¿¡ »ý¼ºÇÑ ¹®¼­(Document)°¡ È°¼ºÈ­µÈ Á÷ÈÄ ½ÇÇàµÇ´Â ÀÌº¥Æ® ¸Þ¼Òµå 
-        /// È°¼ºÈ­ µÈ ¹®¼­(Document) Á¤º¸ °¡Á®¿À±â °¡´É 
+        /// AutoCAD ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(Document)ï¿½ï¿½ È°ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½Ìºï¿½Æ® ï¿½Þ¼Òµï¿½ 
+        /// È°ï¿½ï¿½È­ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(Document) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
         /// </summary>
         private void App_DocumentActivated(object sender, DocumentCollectionEventArgs e)
         {
-            var currentMethod = MethodBase.GetCurrentMethod();   // ·Î±× ±â·Ï½Ã ÇöÀç ½ÇÇà ÁßÀÎ ¸Þ¼­µå À§Ä¡ ±â·Ï
+            var currentMethod = MethodBase.GetCurrentMethod();   // ï¿½Î±ï¿½ ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
 
             try
             {
-                // Document activatedDoc = e.Document;   // È°¼ºÈ­ µÈ ¹®¼­(Document) Á¤º¸ °¡Á®¿À±â
+                // Document activatedDoc = e.Document;   // È°ï¿½ï¿½È­ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(Document) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-                // Palette - WebView2 Å½»ö±â È­¸é Ãâ·Â
+                // Palette - WebView2 Å½ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ ï¿½ï¿½ï¿½
                 AppSetting.Default.PaletteBase.ShowPalette(CobimHelper.WebView2ExplorerTitle, CobimHelper.WebView2ExplorerGuId);
-                // Palette - HubBox È­¸é Ãâ·Â
+                // Palette - HubBox È­ï¿½ï¿½ ï¿½ï¿½ï¿½
                 // AppSetting.Default.PaletteBase.ShowPalette(CobimHelper.HubBoxTitle, CobimHelper.HubBoxGuId);
             }
             catch(Exception ex)
@@ -205,21 +205,21 @@ namespace CobimPalette
         #region App_DocumentBecameCurrent
 
         /// <summary>
-        /// AutoCAD ÀÀ¿ë ÇÁ·Î±×·¥¿¡¼­ ±âÁ¸¿¡ ¿­·ÁÀÖ´Â ¹®¼­(Document)¸¦ ÇöÀç ¹®¼­·Î ¼³Á¤ÇÏ°í 
-        /// ÀÌ ÇöÀç ¹®¼­°¡ ´Ù¸¥ ¹®¼­·Î º¯°æ(´Ù¸¥ ¹®¼­ »õ·Î »ý¼º, ¿­±â µîµî...)µÉ ¶§¸¶´Ù ½ÇÇàµÇ´Â ÀÌº¥Æ® ¸Þ¼Òµå
-        /// ÇöÀç·Î ¼³Á¤ µÈ ¹®¼­(Document) Á¤º¸ °¡Á®¿À±â °¡´É
+        /// AutoCAD ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½(Document)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ 
+        /// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½...)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½Ìºï¿½Æ® ï¿½Þ¼Òµï¿½
+        /// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(Document) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         /// </summary>
         private void App_DocumentBecameCurrent(object sender, DocumentCollectionEventArgs e)
         {
-            var currentMethod = MethodBase.GetCurrentMethod();   // ·Î±× ±â·Ï½Ã ÇöÀç ½ÇÇà ÁßÀÎ ¸Þ¼­µå À§Ä¡ ±â·Ï
+            var currentMethod = MethodBase.GetCurrentMethod();   // ï¿½Î±ï¿½ ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
 
             try
             {
-                // Document currentDoc = e.Document;   // ÇöÀç·Î ¼³Á¤ µÈ ¹®¼­(Document) Á¤º¸ °¡Á®¿À±â
+                // Document currentDoc = e.Document;   // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(Document) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-                // Palette - WebView2 Å½»ö±â È­¸é Ãâ·Â
+                // Palette - WebView2 Å½ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ ï¿½ï¿½ï¿½
                 AppSetting.Default.PaletteBase.ShowPalette(CobimHelper.WebView2ExplorerTitle, CobimHelper.WebView2ExplorerGuId);
-                // Palette - HubBox È­¸é Ãâ·Â
+                // Palette - HubBox È­ï¿½ï¿½ ï¿½ï¿½ï¿½
                 // AppSetting.Default.PaletteBase.ShowPalette(CobimHelper.HubBoxTitle, CobimHelper.HubBoxGuId);
             }
             catch (Exception ex)
@@ -234,16 +234,16 @@ namespace CobimPalette
         #region LoadFromCobimPalette
 
         /// <summary>
-        /// ¾ÖµåÀÎ ÇÁ·Î±×·¥ CobimPalette¿¡ ¼ÓÇÑ 
-        /// dll ÆÄÀÏ(Nuget ÆÐÅ°Áö ÂüÁ¶µÈ dll ÆÄÀÏ Æ÷ÇÔ) ÀÐ¾î¿À±â
+        /// ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ CobimPaletteï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+        /// dll ï¿½ï¿½ï¿½ï¿½(Nuget ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ dll ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½
         /// </summary>
         private Assembly LoadFromCobimPalette(object sender, ResolveEventArgs args)
         {
-            string folderPath = string.Empty;     // ¾ÖµåÀÎ ÇÁ·Î±×·¥ dll ÆÄÀÏ(CobimPalette.dll) ¼ÓÇÑ »óÀ§ Æú´õ °æ·Î 
-            string assemblyPath = string.Empty;   // ¾ÖµåÀÎ ÇÁ·Î±×·¥ dll ÆÄÀÏ(CobimPalette.dll) °æ·Î 
-            Assembly assembly = null;             // ¾ÖµåÀÎ ÇÁ·Î±×·¥ dll ÆÄÀÏ(CobimPalette.dll)
+            string folderPath = string.Empty;     // ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ dll ï¿½ï¿½ï¿½ï¿½(CobimPalette.dll) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 
+            string assemblyPath = string.Empty;   // ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ dll ï¿½ï¿½ï¿½ï¿½(CobimPalette.dll) ï¿½ï¿½ï¿½ 
+            Assembly assembly = null;             // ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ dll ï¿½ï¿½ï¿½ï¿½(CobimPalette.dll)
 
-            var currentMethod = MethodBase.GetCurrentMethod();   // ·Î±× ±â·Ï½Ã ÇöÀç ½ÇÇà ÁßÀÎ ¸Þ¼­µå À§Ä¡ ±â·Ï
+            var currentMethod = MethodBase.GetCurrentMethod();   // ï¿½Î±ï¿½ ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
 
             try
             {
@@ -268,15 +268,15 @@ namespace CobimPalette
         #region ComponentManager_ItemInitialized
 
         /// <summary>
-        /// static Å¬·¡½º ComponentManager¿¡ ¼ÓÇÑ ¸®º» ¾ÆÀÌÅÛ ÃÊ±âÈ­ ÀÌº¥Æ® ¸Þ¼­µå 
+        /// static Å¬ï¿½ï¿½ï¿½ï¿½ ComponentManagerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ìºï¿½Æ® ï¿½Þ¼ï¿½ï¿½ï¿½ 
         /// </summary>
         private void ComponentManager_ItemInitialized(object sender, RibbonItemEventArgs e)
         {
-            // static Å¬·¡½º ComponentManager¿¡ ¼ÓÇÑ ¸®º» ¾ÆÀÌÅÛÀÌ Á¸ÀçÇÏ´Â °æ¿ì 
+            // static Å¬ï¿½ï¿½ï¿½ï¿½ ComponentManagerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ 
             if(ComponentManager.Ribbon is not null)
             {
-                Ribbon.CreateRibbonControl(ComponentManager.Ribbon);   // ¸®º» ¸Þ´º µî·Ï
-                ComponentManager.ItemInitialized -= ComponentManager_ItemInitialized;   // ÀÌº¥Æ® ¸Þ¼­µå ComponentManager_ItemInitialized ÇØÁ¦
+                Ribbon.CreateRibbonControl(ComponentManager.Ribbon);   // ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½
+                ComponentManager.ItemInitialized -= ComponentManager_ItemInitialized;   // ï¿½Ìºï¿½Æ® ï¿½Þ¼ï¿½ï¿½ï¿½ ComponentManager_ItemInitialized ï¿½ï¿½ï¿½ï¿½
             }
         }
 

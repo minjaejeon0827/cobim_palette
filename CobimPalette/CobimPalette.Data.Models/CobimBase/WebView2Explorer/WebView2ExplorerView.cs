@@ -82,7 +82,7 @@ namespace CobimPalette.Data.Models.CobimBase.WebView2Explorer
         /// </summary>
         private TranslatePack _TranslatePack { get; set; }
 
-        // TODO : 아래 주석친 코드 필요시 참고 (2024.11.20 jbh)
+        // TODO : 아래 주석친 코드 필요시 참고 (2024.11.20 minjae)
         /// <summary>
         /// 컨테이너에 속한 파일(확장자 .dwg, .dxf) 
         /// AutoCAD 응용 프로그램 열기 작업시 필수 정보 
@@ -93,7 +93,7 @@ namespace CobimPalette.Data.Models.CobimBase.WebView2Explorer
 
         #region 생성자
 
-        // TODO : 아래 주석친 2가지 오류 메시지 출력으로 인해 Default 생성자 "public WebView2ExplorerView() : base() { }" 구현 (2024.10.07 jbh)
+        // TODO : 아래 주석친 2가지 오류 메시지 출력으로 인해 Default 생성자 "public WebView2ExplorerView() : base() { }" 구현 (2024.10.07 minjae)
         // WebView2ExplorerVM.cs 소스 파일 -> 1번 오류 메시지 "오류 CS0310	'제네릭 형식 또는 메서드 'PageBase<TData>'에서 'TData' 매개 변수로 사용하려면 'WebView2ExplorerView'이(가) 매개 변수가 없는 public 생성자를 사용하는 비추상 형식이어야 합니다." 
         // WebView2ExplorerView.cs 소스 파일 -> 2번 오류 메시지 "오류 CS7036	'WebView2ExplorerView.WebView2ExplorerView(HttpClient, RequestHeader, ContainerPack, FilePack, CheckInPack)'의 필수 매개 변수 'client'에 해당하는 인수가 없습니다."
         //public WebView2ExplorerView() { }
@@ -101,7 +101,7 @@ namespace CobimPalette.Data.Models.CobimBase.WebView2Explorer
 
 
         // TODO : 아래 주석친 생성자 "public WebView2ExplorerView(HttpClient client, RequestHeader requestHeader, ContainerPack containerPack, FilePack filePack, CheckInPack checkInPack = null) : base()"
-        //        WebView2 탐색기 화면 뷰모델(WebView2ExplorerVM.cs)에서 필요시 참고 (2024.09.24 jbh)
+        //        WebView2 탐색기 화면 뷰모델(WebView2ExplorerVM.cs)에서 필요시 참고 (2024.09.24 minjae)
         // public WebView2ExplorerView(HttpClient client, RequestHeader requestHeader, ContainerPack containerPack, FilePack filePack, CheckInPack checkInPack = null) : base() 
         // {
         //     _Client = client;
@@ -332,7 +332,7 @@ namespace CobimPalette.Data.Models.CobimBase.WebView2Explorer
 
         #region 컨테이너에 속한 파일(확장자 .dwg, .dxf) AutoCAD 응용 프로그램 열기 작업시 필수 정보 
 
-        // TODO : 아래 주석친 코드 필요시 참고 (2024.11.20 jbh)
+        // TODO : 아래 주석친 코드 필요시 참고 (2024.11.20 minjae)
         /// <summary>
         /// 컨테이너에 속한 파일(확장자 .dwg, .dxf) AutoCAD 응용 프로그램 열기 작업시 필수 정보 값 셋팅
         /// </summary>
@@ -407,8 +407,8 @@ namespace CobimPalette.Data.Models.CobimBase.WebView2Explorer
 
         // TODO : 탐색기 화면 뷰(ExplorerV.xaml) -> 컨텍스트 메뉴 "체크아웃" 클릭시 멀티 바인딩 대상 중 "exp_FolderId" 제외함.
         //        제외한 사유는 "exp_FolderId" 설정시 탐색기 뷰모델(ExplorerVM.cs) -> 컨테이너 리스트 생성 비동기 메서드 "ContainerListCreateAsync"
-        //        실행 결과 데이터 정보가 변경되어 컨테이너 리스트 화면이 바뀌므로 해당 프로퍼티는 멀티 바인딩 대상에서 제외 처리함. (2024.10.11 jbh) 
-        //        하여 아래 enum 열거형 구조체 EnumCheckOut 멤버 변수 FOLDERID 또한 사용 제외 (2024.10.11 jbh)
+        //        실행 결과 데이터 정보가 변경되어 컨테이너 리스트 화면이 바뀌므로 해당 프로퍼티는 멀티 바인딩 대상에서 제외 처리함. (2024.10.11 minjae) 
+        //        하여 아래 enum 열거형 구조체 EnumCheckOut 멤버 변수 FOLDERID 또한 사용 제외 (2024.10.11 minjae)
         // [Description("folderId")]   // 폴더_아이디
         // FOLDERID = 3,
         [Description("fileId")]   // 파일_아이디
@@ -455,16 +455,16 @@ namespace CobimPalette.Data.Models.CobimBase.WebView2Explorer
         CONTAINERID = 2,
         [Description("folderId")]    // 폴더_아이디
         FOLDERID = 3,
-        // TODO : enum 열거형 구조체 EnumCheckIn 멤버 변수 "UPLOADFILE" 필요시 사용 예정 (2024.10.11 jbh)
+        // TODO : enum 열거형 구조체 EnumCheckIn 멤버 변수 "UPLOADFILE" 필요시 사용 예정 (2024.10.11 minjae)
         //[Description("uploadFiles")]  // 업로드_파일
         //UPLOADFILES = 4,
         [Description("fileId")]      // 파일_아이디
         FILEID = 4,
         // TODO : 추후 체크인 구현시 업로드 하려는 파일명(UPLOAD_FILENAME)과 기존 체크인 된 파일명(FILENAME)이 다를 경우
-        //        enum 열거형 구조체 EnumCheckIn 멤버 변수 "FILENAME" 사용 예정 (2024.10.11 jbh)
+        //        enum 열거형 구조체 EnumCheckIn 멤버 변수 "FILENAME" 사용 예정 (2024.10.11 minjae)
         [Description("fileNm")] // 파일명
         FILENAME = 5,
-        // TODO : enum 열거형 구조체 EnumCheckIn 멤버 변수 "FILESIZE" 필요시 사용 예정 (2024.10.11 jbh)
+        // TODO : enum 열거형 구조체 EnumCheckIn 멤버 변수 "FILESIZE" 필요시 사용 예정 (2024.10.11 minjae)
         // [Description("fileSize")]   // 파일_사이즈
         // FILESIZE = 6
         [Description("revsnVal")]      // 업로드_전_파일_버전
@@ -497,7 +497,7 @@ namespace CobimPalette.Data.Models.CobimBase.WebView2Explorer
         CONTAINERID = 2,
         [Description("fileNm")]   // 파일명
         FILENAME = 3,
-        // TODO : enum 열거형 구조체 EnumCancelWork 멤버 변수 "WORKUSERID" 필요시 사용 예정 (2024.10.11 jbh)
+        // TODO : enum 열거형 구조체 EnumCancelWork 멤버 변수 "WORKUSERID" 필요시 사용 예정 (2024.10.11 minjae)
         //[Description("작업중인_사용자_아이디")]
         //WORKUSERID = 3,
         [Description("Tenant")]   // 테넌트 아이디
@@ -681,7 +681,7 @@ namespace CobimPalette.Data.Models.CobimBase.WebView2Explorer
         /// </summary>
         private string _FileName { get; set; }
 
-        // TODO : 파일 사이즈 프로퍼티 "_FileSize" 필요시 사용 예정 (2024.10.11 jbh)
+        // TODO : 파일 사이즈 프로퍼티 "_FileSize" 필요시 사용 예정 (2024.10.11 minjae)
         /// <summary>
         /// 파일 사이즈
         /// </summary>
@@ -808,7 +808,7 @@ namespace CobimPalette.Data.Models.CobimBase.WebView2Explorer
         /// </summary>
         private string _Comment { get; set; }
 
-        // TODO : 파일 정보 프로퍼티 "_FilePack" 필요시 사용 예정 (2024.10.14 jbh)
+        // TODO : 파일 정보 프로퍼티 "_FilePack" 필요시 사용 예정 (2024.10.14 minjae)
         /// <summary>
         /// 파일 정보
         /// </summary>
@@ -868,7 +868,7 @@ namespace CobimPalette.Data.Models.CobimBase.WebView2Explorer
 
         #region 파일 정보
 
-        // TODO : 파일 정보 값 셋팅 메서드 "SetFilePack" 필요시 사용 예정 (2024.10.14 jbh)
+        // TODO : 파일 정보 값 셋팅 메서드 "SetFilePack" 필요시 사용 예정 (2024.10.14 minjae)
         /// <summary>
         /// 파일 정보 값 셋팅 
         /// </summary>
@@ -877,7 +877,7 @@ namespace CobimPalette.Data.Models.CobimBase.WebView2Explorer
         //     _FilePack = filePack;
         // }
 
-        // TODO : 파일 정보 가져오기 메서드 "GetFilePack" 필요시 사용 예정 (2024.10.14 jbh)
+        // TODO : 파일 정보 가져오기 메서드 "GetFilePack" 필요시 사용 예정 (2024.10.14 minjae)
         /// <summary>
         /// 파일 정보 가져오기
         /// </summary>
@@ -904,13 +904,13 @@ namespace CobimPalette.Data.Models.CobimBase.WebView2Explorer
     {
         // TODO : ExplorerView.cs 소스파일에 속한
         //        컨테이너 작업 취소 정보 클래스 "CancelWorkPack"안에 속하는 프로퍼티 "projectId", "teamId", "containerId" 의 접근 제한자를 
-        //        private로 설정하면 오류 발생하여 접근 제한자를 public으로 수정함. (2024.11.04 jbh)
+        //        private로 설정하면 오류 발생하여 접근 제한자를 public으로 수정함. (2024.11.04 minjae)
         //        오류 발생 위치 - ExplorerRestServer.cs -> 비동기 메서드 "PostCancelWorkAsync" 
         //        -> 메서드 "JsonSerializer.Serialize" 호출하여 json 문자열(content)을 제대로 리턴 받지 못하고 오류 발생함. 
 
         // TODO : ExplorerView.cs 소스파일에 속한
         //        컨테이너 작업 취소 정보 클래스 "CancelWorkPack"안에 속하는 프로퍼티 "projectId", "teamId", "containerId" 프로퍼티 이름 
-        //        변경하면 오류 발생하여 수정 안 하고 그대로 유지함.(2024.11.04 jbh)
+        //        변경하면 오류 발생하여 수정 안 하고 그대로 유지함.(2024.11.04 minjae)
         //        오류 발생 위치 - ExplorerRestServer.cs -> 비동기 메서드 "PostCancelWorkAsync" 
         //        서버로 부터 제대로 리턴 받지 못하고 오류 발생함. 
 
@@ -1210,7 +1210,7 @@ namespace CobimPalette.Data.Models.CobimBase.WebView2Explorer
 
     #region Sample
 
-    // TODO : 아래 주석친 코드 필요시 참고 (2024.11.20 jbh)
+    // TODO : 아래 주석친 코드 필요시 참고 (2024.11.20 minjae)
     /// <summary>
     /// 컨테이너에 속한 파일(확장자 .dwg, .dxf) 
     /// AutoCAD 응용 프로그램 열기 작업시 필수 정보 

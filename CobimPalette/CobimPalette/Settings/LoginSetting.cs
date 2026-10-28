@@ -2,7 +2,7 @@
 
 namespace CobimPalette.Settings
 {
-    // TODO : 로그인 기본 설정 클래스 LoginSetting 필요시 추가 구현 예정 (2024.09.24 jbh)
+    // TODO : 로그인 기본 설정 클래스 LoginSetting 필요시 추가 구현 예정 (2024.09.24 minjae)
     /// <summary>
     /// 로그인 기본 설정 
     /// </summary>
@@ -15,7 +15,7 @@ namespace CobimPalette.Settings
         /// </summary>
         // private LoginV _LoginV { get; set; }
 
-        // TODO : 로그인 서버 주소 프로퍼티 "_LoginServerPath" 필요시 사용 예정 (2024.09.23 jbh)
+        // TODO : 로그인 서버 주소 프로퍼티 "_LoginServerPath" 필요시 사용 예정 (2024.09.23 minjae)
         /// <summary>
         /// 로그인 서버 주소 
         /// </summary>
@@ -85,7 +85,7 @@ namespace CobimPalette.Settings
 
         #region SetLoginServerPath
 
-        // TODO : 필요시 메서드 SetLoginServerPath 사용 예정 (2024.09.23 jbh)
+        // TODO : 필요시 메서드 SetLoginServerPath 사용 예정 (2024.09.23 minjae)
         /// <summary>
         /// 로그인 서버 URL 주소 값 셋팅
         /// </summary>
@@ -98,7 +98,7 @@ namespace CobimPalette.Settings
 
         #region GetLoginServerPath
 
-        // TODO : 필요시 메서드 GetLoginServerPath 사용 예정 (2024.09.23 jbh)
+        // TODO : 필요시 메서드 GetLoginServerPath 사용 예정 (2024.09.23 minjae)
         /// <summary>
         /// 로그인 서버 URL 주소 값 가져오기
         /// </summary>
