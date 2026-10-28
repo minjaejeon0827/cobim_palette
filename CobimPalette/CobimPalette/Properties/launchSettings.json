@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "CobimPalette": {
+      "commandName": "Project"
+    },
+    "AutoCAD2025": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files\\Autodesk\\AutoCAD 2025\\acad.exe"
+    }
+  }
+}

@@ -1,0 +1,242 @@
+﻿<Window x:Class="CobimPalette.Views.Part.Palettes.Project.WebView2CDE.WebView2Explorer.CheckInPartV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CobimPalette.Views.Part.Palettes.Project.WebView2CDE.WebView2Explorer"
+        xmlns:vm="clr-namespace:CobimPalette.ViewModels.Part.Palettes.Project.WebView2CDE.WebView2Explorer"
+        xmlns:utilsText="clr-namespace:CobimPalette.Utils.Text"
+        mc:Ignorable="d"
+        Title="{Binding}" 
+        d:DataContext="{d:DesignInstance Type=vm:CheckInPartVM}"
+        Height="230" 
+        Width="500"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="CanResize">
+    <!--  TODO : 아래 주석친 뷰모델 바인딩 하는 XAML 코드 필요시 참고 (2024.10.10 jbh)  -->
+    <!--  <Window.DataContext>
+    <Binding Path="CheckInPartVM" />
+</Window.DataContext>  -->
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="App.Brush.Themes.Common.Red" Color="Red" />
+        <SolidColorBrush x:Key="App.Brush.Themes.Common.Transparent" Color="Transparent"  />
+        <SolidColorBrush x:Key="App.Brush.Themes.Common.White" Color="#FFFFFF"     />
+        <SolidColorBrush x:Key="App.Brush.Themes.Common.Gray" Color="Gray"         />
+        <SolidColorBrush x:Key="App.Brush.Themes.Winter.Black.20" Color="#2E333A"  />
+
+        <!--  TODO : ButtonBase 스타일 정의 필요시 구현 예정 (2024.10.10 jbh)  -->
+        <Style x:Key="App.Button" TargetType="{x:Type ButtonBase}">
+
+        </Style>
+
+        <!--  TODO : CobimDockableDialogs 응용 프로그램 체크인 팝업 화면 상단 타이틀 바에 사용할 버튼 스타일 구현 (2024.10.10 jbh)  -->
+        <!--  유튜브 참고 URL - https://youtu.be/Q6VxSPlkcCg?si=dkC2ujAX3reUjQPk  -->
+        <!--  참고 URL - https://gigong.tistory.com/99  -->
+        <!--  TODO : 스타일 TargetType "ButtonBase" 필요시 구현 예정 (2024.10.10 jbh)  -->
+        <Style x:Key="App.Button.CheckIn" BasedOn="{StaticResource App.Button}" TargetType="{x:Type Button}">
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Width" Value="35"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Background" Value="{DynamicResource App.Brush.Themes.Common.Transparent}"/>
+            <!--  TODO : 타이틀 바에 속한 버튼 ("최소화", "최대화", "닫기")이 정상적으로 동작하도록 프로퍼티  Property="WindowChrome.IsHitTestVisibleInChrome" 스타일 추가 (2023.11.13 jbh)  -->
+            <!--  참고 URL - https://stackoverflow.com/questions/41905412/windowchrome-cant-click-buttons-in-titlebar  -->
+            <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}"  BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--  CheckInPartV.xaml - 체크인 팝업 화면 버튼 (닫기) 스타일 정의  -->
+        <Style x:Key="App.Button.CheckInPartV.Exit" BasedOn="{StaticResource App.Button.CheckIn}" TargetType="{x:Type Button}">
+            <Style.Triggers>
+                <Trigger Property="Button.IsMouseOver" Value="True">
+                    <Setter Property="Button.Background" Value="{DynamicResource App.Brush.Themes.Common.Red}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Border Background="{StaticResource App.Brush.Themes.Common.White}"
+        BorderBrush="{StaticResource App.Brush.Themes.Winter.Black.20}"
+        BorderThickness="2">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <DockPanel Grid.Row="0"
+                   Background="{StaticResource App.Brush.Themes.Winter.Black.20}">
+                <TextBlock Text="{Binding CheckIn_Title}"
+                       Margin="5,0,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Foreground="{StaticResource App.Brush.Themes.Common.White}"
+                       FontWeight="Bold"/>
+
+                <!--  닫기 버튼  -->
+                <Button x:Name="ExitBtn"
+                    HorizontalAlignment="Right"
+                    Style="{DynamicResource App.Button.CheckInPartV.Exit}"                
+                    Command="{Binding ExitCommand}">
+                    <Canvas Height="25" Width="35">
+                        <Line X1="12" Y1="8" 
+                          X2="22" Y2="18"    
+                          Stroke="{StaticResource App.Brush.Themes.Common.White}"
+                          StrokeThickness="2" />
+
+                        <Line X1="12" Y1="18"    
+                          X2="22" Y2="8"  
+                          Stroke="{StaticResource App.Brush.Themes.Common.White}"
+                          StrokeThickness="2" />
+                    </Canvas>
+                </Button>
+            </DockPanel>
+
+            <!--  Comment 작성 영역  -->
+            <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Height="60"
+                    Margin="0,80,0,0">
+                <!--  "Comment :"  <TextBlock> 영역  -->
+                <TextBlock Text="Comment :" 
+                       FontSize="20"
+                       VerticalAlignment="Center"/>
+
+                <!--  TODO : <TextBox> 영역에 PlaceHolder(Watermark) "Enter Comment (optional)..." 구현 (2023.12.01 jbh)  -->
+                <!--  참고 URL - https://blissfuljoon.tistory.com/374  -->
+                <!--  참고 2 URL - https://kjun.kr/1127  -->
+                <!--  TODO : <TextBox>에 적힌 텍스트 <TextBox> 영역 중앙 정렬 구현 VerticalContentAlignment="Center" (2023.12.01 jbh)  -->
+                <!--  참고 URL - https://drbeeeye.tistory.com/9  -->
+                <Border Margin="10,0,0,0"
+                    BorderBrush="{StaticResource App.Brush.Themes.Winter.Black.20}"
+                    BorderThickness="2">
+                    <Grid>
+                        <!--  TODO : 체크인 Comment 입력할 수 있는 <TextBox> 영역에 Text 문자열을 여러 줄 작성할 수 있도록 멀티라인 구현 (2023.12.04 jbh)  -->
+                        <!--  참고 URL - https://learn.microsoft.com/ko-kr/dotnet/desktop/wpf/controls/how-to-create-a-multiline-textbox-control?view=netframeworkdesktop-4.8  -->
+                        <!--  참고 2 URL - https://m.blog.naver.com/lhs860226/142423158  -->
+                        <!--  참고 3 URL - https://salmonworld.tistory.com/159?category=898737  -->
+                        <!--  참고 4 URL - https://insurang.tistory.com/entry/WPF-C-%EB%A9%80%ED%8B%B0%EB%9D%BC%EC%9D%B8-%EA%B8%80%EC%93%B0%EA%B8%B0-%EA%B0%80%EB%A1%9C-%EC%84%B8%EB%A1%9C-%EC%8A%A4%ED%81%AC%EB%A1%A4%EB%B0%94-AcceptsReturn-Tab-TextWrapping-%EC%A4%84%EB%B0%94%EA%BF%88-%ED%95%9C%EC%A4%84-%ED%85%8D%EC%8A%A4%ED%8A%B8%EB%B0%95%EC%8A%A4-Textbox-%EC%97%AC%EB%9F%AC%EC%A4%84-%EB%91%90%EC%A4%84%EC%9D%B4%EC%83%81-ScrollBar-WrapWithOverflow  -->
+                        <!--  체크인 Comment 입력  -->
+                        <TextBox Name="txtCommentMultiLine"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                             AcceptsTab ="True"
+                             VerticalScrollBarVisibility="Visible"
+                             Text="{Binding TxtComment}"
+                             utilsText:TextBoxHelper.UseOnPropertyChanged="True"
+                             Width="350" 
+                             Height="60"
+                             FontSize="18" 
+                             HorizontalAlignment="Left" 
+                             VerticalAlignment="Center" 
+                             VerticalContentAlignment="Center"  />
+
+                        <TextBlock Text="Enter Comment (optional)..." 
+                               Margin="5,0,0,0" 
+                               FontSize="18" 
+                               IsHitTestVisible="False" 
+                               VerticalAlignment="Center" 
+                               HorizontalAlignment="Left">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                    <Setter Property="Foreground" Value="{StaticResource App.Brush.Themes.Common.Gray}"/>
+
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=txtCommentMultiLine}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+                </Border>
+            </StackPanel>
+
+            <!--  버튼 체크인 + 파일 업로드 영역  -->
+            <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="0,50,0,0">
+                <Border Width="200"
+                    Height="30">
+                    <Button x:Name="CheckInBtn"  
+                        Background="{StaticResource App.Brush.Themes.Winter.Black.20}"
+                        Foreground="{StaticResource App.Brush.Themes.Common.White}"
+                        Content="체크인 + 파일 업로드"
+                        Command="{Binding UpLoadCommand}"
+                        FontSize="18" />
+                </Border>
+            </StackPanel>
+
+            <!--  TODO : [파일 이름, 파일 열기 영역 구현 보류 - 추후 인재 INC와 소통 필요]  -->
+            <!--  기존 체크아웃한 파일 말고 새로운 파일도 다중 파일 업로드 기능 필요  -->
+            <!--  컨테이너 1개 -> 파일 A, B, C ... (1 : N 관계) 로 체크인 + 다중 파일 업로드 할 수 있게끔  -->
+            <!--  인재 INC와 소통 진행 필요함. (추후 Rest API 새로 구현 요청)  -->
+            <!--  TODO : WPF OpenFileDialog 사용해서 테스트용 팝업 "열기" 화면 출력 및 컨테이너 체크인 + 업로드 할 파일 열기 구현 (2023.12.04 jbh)  -->
+            <!--  유튜브 참고 URL  -->
+            <!--  https://youtu.be/Ks9bzPSx7Vs?si=GkwGbWPvbSYOYOwC  -->
+
+            <!--  유튜브 참고 2 URL  -->
+            <!--  https://youtu.be/2fy6csZb9I0?si=Be3ubDMHW0X4bw5S  -->
+            <!--  파일 이름, 파일 열기 영역  -->
+            <!--<StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Height="30"
+                    Margin="80,40,0,0">
+            -->
+            <!--"파일 이름 :"  <TextBlock> 영역-->
+            <!--  
+            <TextBlock Text="파일 이름 :" 
+                       FontSize="20"/>
+
+            <Border Margin="10,0,0,0"
+                    BorderBrush="{StaticResource App.Brush.Themes.Fall.Brown}"
+                    BorderThickness="2">
+                <TextBox Name="txtTestFileInfo"
+                         Width="200" 
+                         FontSize="18" 
+                         Text="{Binding TxtTestFileInfo}"/>
+            </Border>
+   
+            -->
+            <!--  <Button> 영역  -->
+            <!--
+            <Button Width="100" 
+                    Margin="10,0,0,0"
+                    Content="테스트 열기"
+                    Command="{Binding TestCommand}"/>
+        </StackPanel>-->
+
+            <!--  <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="0,40,0,0"
+                    Height="30">
+            <Button Width="100"
+                    Background="{StaticResource App.Brush.Themes.Fall.Brown}"
+                    Foreground="{StaticResource App.Brush.Themes.Common.White}"
+                    Content="체크인(+업로드)" />
+        </StackPanel>  -->
+        </Grid>
+    </Border>
+</Window>
