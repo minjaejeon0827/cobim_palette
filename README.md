@@ -1,5 +1,11 @@
 # CobimPalette
 
+## 데모 (프로그램 실행 화면)
+
+**체크인**
+
+![AutoCAD 2025 애드인 프로그램 실행 화면](cobim_palette.png)
+
 ## 프로젝트 소개
 
 `CobimPalette`는 국토교통부 COBIM 연구과제에서 개발한 **AutoCAD 2025 애드인 프로그램**이다. (.NET 8, `net8.0-windows`, WPF + WinForms)
