@@ -2,7 +2,7 @@
 
 ## 프로젝트 소개
 
-`CobimPalette`는 **AutoCAD 2025 애드인 프로그램**입니다. (.NET 8, `net8.0-windows`, WPF + WinForms)
+`CobimPalette`는 국토교통부 COBIM 연구과제에서 개발한 **AutoCAD 2025 애드인 프로그램**이다. (.NET 8, `net8.0-windows`, WPF + WinForms)
 
 AutoCAD 화면 안에 WebView2 기반의 "COBIM 탐색기" Palette(도킹 창)를 띄운다. 
 이 Palette는 COBIM/HubBox 웹 탐색기(`http://explorer.cobim.kr:8100/...`)를 보여 주고, 
